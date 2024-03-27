@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdn.cloudwares.com/css/webfonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+    <header>   
+        
+        <div class="logo">BEST 0NE GAS</div>   
+        <!-- Navigation menu-->
+                <div class="menu-toggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+        
+                <nav class="navmenu">
+                    <ul>
+                        
+                       <li><a href="/">Home</a></li> 
+                       <li><a href="/tanks">Tanks</a></li>
+                        <li><a href="metre.html">Sales</a></li>
+                        <li><a href="revenue.html">Revenue</a></li>
+                        <li><a href="bar.html">Bar</a></li>
+                    
+                    </ul>
+                        
+                </nav>
+                
+        </header>
+    <div class="container">
+        <h2>Create New Account</h2>
+        <form action="/create_user" method="POST">
+            <form-group><label for="new-username">Username:</label>
+                <input type="text" id="new-username" name="username" required><br><br>
+                <label for="new-password">Password:</label>
+                <input type="password" id="new-password" name="password" required><br><br>
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm_password" required><br><br>
+                <input type="checkbox" id="admin-checkbox" name="admin_checkbox">
+                <label for="admin-checkbox">Create as Admin</label><br><br>
+                <button type="submit">Create Account</button>
+
+            </form-group>
+            
+        </form>
+    </div>
+
+    <footer>
+        <div class="copyright">
+            <p>copyright &copy;2024 <a href="#">BEST ONE GAS: All Rights Reserved</a></p>
+        </div>
+        <div class="power">
+            <p style="color: aliceblue;">Powered By PlimsolTech</p>
+        </div>
+    </footer>
+
+    <script src="/static/toggle.js"></script>
+    <script src="/static/time.js"></script>
+    
+</body>
+</html>

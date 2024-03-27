@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>Login as Admin</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="stylesheet" href="https://cdn.cloudwares.com/css/webfonts.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
@@ -12,8 +12,8 @@
 <body>
     <header>   
         
-<div class="logo">BEST 0NE GAS & PET CO </div>   
-<!-- Navigation menu-->
+        <div class="logo">BEST 0NE GAS & PET CO </div>   
+        <!-- Navigation menu-->
 {% if 'username' in session %}
 <nav class="navmenu">
     <ul>
@@ -24,9 +24,6 @@
         <li><a href="bar.html">Bar</a></li>
     </ul>
 </nav>
-<div class="user-info">
-    Welcome, {{ session['username'] }}! <a href="{{ url_for('logout') }}">Logout</a>
-</div>
 {% else %}
 <nav class="navmenu_2">
     <ul>
@@ -36,27 +33,25 @@
     </ul>
 </nav>
 {% endif %}
-        
-</header>
-    <div class="date_time">
-        <p>{{current_date}}</p>
-    </div>
-    <p id="current_time" style="float: right; margin-top: -40px; margin-right: 10px; padding: 0 10px; color: black; font-weight: bold;"></p>
+                
+        </header>
     <div class="container">
-        <h1>Best One Gas & Pet Co Ltd</h1>
-        {% if 'username' in session %}
-            {% if session['is_admin'] %}
-                <p>You just left your dashboard, {{ session['username'] }}! You are logged in as an admin, return to your dashboard <a href="{{ url_for('admin_dashboard_2') }}">Admin Dashboard</a></p>
-            {% else %}
-                <p>You just left your dashboard, {{ session['username'] }}! You are logged in as a user, return to your dashboard <a href="{{ url_for('dashboard') }}">User Dashboard</a></p>
-            {% endif %}
-            <a href="{{ url_for('logout') }}">Logout</a>
-        {% else %}
-            <p><a href="{{ url_for('login') }}">Login</a> as an authorized user otherwise contact <a href="/admin_login">Admin</a> </p>
+        <h1>Admin Login</h1>
+        {% if message %}
+            <p>{{ message }}</p>
         {% endif %}
+        <form method="POST" action="/admin_login">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn">Login as Admin</button>
+        </form>
     </div>
-    
-
     <footer>
         <div class="copyright">
             <p>copyright &copy;2024 <a href="#">BEST ONE GAS: All Rights Reserved</a></p>
@@ -65,9 +60,7 @@
             <p style="color: aliceblue;">Powered By PlimsolTech</p>
         </div>
     </footer>
-
-    <script src="/static/toggle.js"></script>
-    <script src="/static/time.js"></script>
-    
 </body>
+<script src="/static/toggle.js"></script>
+    <script src="/static/time.js"></script>
 </html>

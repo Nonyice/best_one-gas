@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
+    <title>Admin Account Login</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdn.cloudwares.com/css/webfonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="{{ url_for('static', filename='time.js') }}"></script>
 </head>
 <body>
     <header>   
@@ -31,44 +34,24 @@
                 </nav>
                 
         </header>
-    <div class="container">
-        <h3>Welcome, {{ session['username'] }}!</h3>
-        <p style="text-align: justify;">Please  {{ session['username'] }}, this is a sensored zone, Changes you make through this dashboard can always be traced to you, kindly ensure all enteries are correct</p>
-        
-        <h4>Dashboard<h4>
-
-        <div class="dashboard">
-            <div class="dashboard_item">
-                <p>Pump Sales</p>
-            </div>
-
-            <div class="dashboard_item">
-                <p>Underground Tanks</p>
-            </div>
-
-            <div class="dashboard_item">
-                <p>Revenue</p>
-            </div>
-
-            <div class="dashboard_item">
-                <p>Restaurant & Bar</p>
-            </div>
-
+    <div class="container-admin">
+        <div class="container">
+            <h1><p>Admin Login</p></h1>
+            <p>You are authorized to access this only as an Admin</p><a href="/admin_login">login as Admin</a>
         </div>
-        <div>
-                    <a href="{{ url_for('logout') }}">Logout</a>
+        
     </div>
-</div>
-<footer>
-    <div class="copyright">
-        <p>copyright &copy;2024 <a href="#">BEST ONE GAS: All Rights Reserved</a></p>
-    </div>
-    <div class="power">
-        <p style="color: aliceblue;">Powered By PlimsolTech</p>
-    </div>
-</footer>
-    
+    <footer>
+        <div class="copyright">
+            <p>copyright &copy;2024 <a href="#">BEST ONE GAS: All Rights Reserved</a></p>
+        </div>
+        <div class="power">
+            <p style="color: aliceblue;">Powered By PlimsolTech</p>
+        </div>
+    </footer>
 </body>
-<script src="/static/toggle.js"></script>
+    <script src="/static/toggle.js"></script>
     <script src="/static/time.js"></script>
 </html>
+
+    

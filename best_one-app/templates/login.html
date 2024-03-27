@@ -5,11 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdn.cloudwares.com/css/webfonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="{{ url_for('static', filename='time.js') }}"></script>
 </head>
 <body>
+    <header>   
+        
+        <div class="logo">BEST 0NE GAS & PET CO </div>   
+        <!-- Navigation menu-->
+{% if 'username' in session %}
+<nav class="navmenu">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tanks">Tanks</a></li>
+        <li><a href="metre.html">Sales</a></li>
+        <li><a href="revenue.html">Revenue</a></li>
+        <li><a href="bar.html">Bar</a></li>
+    </ul>
+</nav>
+{% else %}
+<nav class="navmenu_2">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/admin_login">Admin</a></li>
+    </ul>
+</nav>
+{% endif %}
+                
+        </header>
     <div class="container">
         <h1>Login</h1>
-        <form method="POST">
+        {% if message %}
+            <p>{{ message }}</p>
+        {% endif %}
+        <form method="POST" action="/login">
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
@@ -21,5 +52,15 @@
             <button type="submit" class="btn">Login</button>
         </form>
     </div>
+    <footer>
+        <div class="copyright">
+            <p>copyright &copy;2024 <a href="#">BEST ONE GAS: All Rights Reserved</a></p>
+        </div>
+        <div class="power">
+            <p style="color: aliceblue;">Powered By PlimsolTech</p>
+        </div>
+    </footer>
 </body>
+<script src="/static/toggle.js"></script>
+    <script src="/static/time.js"></script>
 </html>
