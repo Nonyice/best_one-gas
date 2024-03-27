@@ -30,7 +30,7 @@ def get_db_connection():
     )
     return conn
 
-# Sample homepage route
+# Homepage route
 @app.route('/')
 def homepage():
     # Get the current date

@@ -12,7 +12,7 @@
 <body>
     <header>   
         
-<div class="logo">BEST 0NE GAS & PET CO </div>   
+<div class="logo">BEST 0NE GAS & PET Mkt</div>   
 <!-- Navigation menu-->
 {% if 'username' in session %}
 <nav class="navmenu">
@@ -43,7 +43,7 @@
     </div>
     <p id="current_time" style="float: right; margin-top: -40px; margin-right: 10px; padding: 0 10px; color: black; font-weight: bold;"></p>
     <div class="container">
-        <h1>Best One Gas & Pet Co Ltd</h1>
+        <h1>Best One Gas & Pet Mkt Co Ltd</h1>
         {% if 'username' in session %}
             {% if session['is_admin'] %}
                 <p>You just left your dashboard, {{ session['username'] }}! You are logged in as an admin, return to your dashboard <a href="{{ url_for('admin_dashboard_2') }}">Admin Dashboard</a></p>
