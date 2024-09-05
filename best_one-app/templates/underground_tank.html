@@ -1,0 +1,88 @@
+<!-- tank_haulage_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tank Haulage Input</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    
+</head>
+<body>
+    <header>   
+        
+        <div class="logo">BEST 0NE GAS</div>   
+        <!-- Navigation menu-->
+                <div class="menu-toggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+        
+                <nav class="navmenu">
+                    <ul>
+                        
+                       <li><a href="/">Home</a></li> 
+                       <li><a href="/tanks">Tanks</a></li>
+                        <li><a href="/pump_sales">Sales</a></li>
+                        <li><a href="revenue.html">Revenue</a></li>
+                        <li><a href="bar.html">Bar</a></li>
+                    
+                    </ul>
+                        
+                </nav>
+                
+        </header>
+    <div class="container">
+        <h1>Tank Haulage Input</h1>
+
+    <form action="/tanks" method="post">
+        <div class="form-group">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+    </div>
+
+    <div class="form-group">
+        <label for="tank">Select Tank:</label>
+        <select id="tank" name="tank" required>
+            <option value="PMS Tank 1">PMS Tank 1</option>
+            <option value="PMS Tank 2">PMS Tank 2</option>
+            <option value="AGO Tank 1">AGO Tank 1</option>
+            <option value="AGO Tank 2">AGO Tank 2</option>
+        </select>
+    </div><br><br>
+        
+        
+            <div class="form-group">
+                <label for="opening_stock">Opening Stock:</label>
+                <input type="number" id="opening_stock" name="opening_stock" required><br><br>
+            </div>
+    
+            <div class="form-group">
+                <label for="received_stock">Receieved Stock:</label>
+                <input type="number" id="received_stock" name="received_stock" required><br><br>
+            </div>
+            
+            <!-- Add a data-date attribute to identify the date for each closing dipping -->
+            <div class="form-group">
+                <label for="closing_stock">Closing Stock:</label>
+                <input type="number" id="closing_stock" name="closing_stock" required><br><br>
+            </div>
+            
+            <button type="submit">Submit</button>
+        </form>
+        </div>
+        
+        
+        <footer>
+            <div class="copyright">
+                <p>copyright &copy;2024 <a href="#">BEST ONE GAS: All Rights Reserved</a></p>
+            </div>
+            <div class="power">
+                <p style="color: aliceblue;">Powered By PlimsolTech</p>
+            </div>
+        </footer>
+</body>
+<script src="/static/toggle.js"></script>
+<script src="/static/time.js"></script>
+</html>

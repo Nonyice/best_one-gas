@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remove User</title><link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <link rel="stylesheet" href="https://cdn.cloudwares.com/css/webfonts.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <script src="{{ url_for('static', filename='time.js') }}"></script>
-
+    <title>Tank Ullage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
-<body> <header>   
+<body> 
+    <header>   
         
-    <div class="logo">BEST 0NE GAS & PET CO</div>   
+    <div class="logo">BEST 0NE GAS</div>   
     <!-- Navigation menu-->
             <div class="menu-toggle">
                 <div class="bar"></div>
@@ -33,23 +31,12 @@
             </nav>
             
     </header>
-    <div class="container">
-        <h2>Remove User Account</h2>
-    
-        <form action="{{ url_for('remove_user') }}" method="POST">
-            <div class="form-group">
-    
-            <label for="username">Select User to Remove:</label>
-            <select id="username" name="username">
-                {% for user in users %}
-                <option value="{{ user }}">{{ user }}</option>
-                {% endfor %}
-            </select>
-            <button type="submit">Remove User</button>
-        </div>
-    
-        </form>
 
+    <div class="container">
+        <ul>
+            <li><a href="/tanks/stock_update">Stock Update</a></li>
+            <li><a href="/stock_position">Stock Position</a></li>
+        </ul>
     </div>
 
     
@@ -63,7 +50,9 @@
         </div>
     </footer>
 
-</body><script src="/static/toggle.js"></script>
-<script src="/static/time.js"></script>
+    
+</body>
 
+<script src="/static/toggle.js"></script>
+<script src="/static/time.js"></script>
 </html>

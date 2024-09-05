@@ -141,6 +141,15 @@ header {
     text-align: center;
 }
 
+.container-pump {
+    width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: center;
+}
+
 .container-admin {
     margin: 0;
 }
@@ -148,6 +157,14 @@ header {
 .container p {
 text-align: center;
 }
+
+.pump-sales-container {
+    margin: 0;
+    flex-direction: row;
+    display: flex;
+}
+
+
 
 .container .dashboard #super_user li{
     margin-left: 0;
@@ -159,10 +176,9 @@ text-align: center;
 }
 
 
-
 .dashboard {
     flex-direction: row;
-    padding: 5px;
+    padding: 2px;
     height: 200px;
     position: relative;
     display: flex;
@@ -173,18 +189,11 @@ text-align: center;
     margin-left: 20px;
 }
 
-.dashboard_item p {
-    padding-bottom: 15px;
-    height: 2px;
-    margin-top: 2px;
-    text-align: center;
-}
 
 .dashboard_2 {
     display: flex;
     justify-content: space-between;
     height: 200px;
-    margin: 2px;
   }
 
   .dashboard_2 #super_user {
@@ -194,15 +203,20 @@ text-align: center;
   
   .dashboard_item {
     background-color: #fff;
-    padding: 10px;
+    padding: 8px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 4px;
     margin: 1px;
     height: 30px;
     justify-content: center;
     margin-left: 10px;
   }
+
+  
+  .dashboard_item p {
+    margin-top: -2px;
+    text-align: center;
+}
   
 
 
@@ -231,7 +245,6 @@ text-align: center;
     display: flex;
     width: 400px;
     padding: 2px;
-    
     margin-top: 0px;
     margin-left: 140px;
     float: right;
@@ -243,7 +256,7 @@ text-align: center;
     display: flex;
     max-width: 400px;
     padding: 2px;
-   
+    margin-left: -2px;
     margin-top: 60px;
     float: right;
     position: absolute;
@@ -256,6 +269,11 @@ text-align: center;
     width: 200px;
 }
 
+
+#admin_dashb_items p a {
+    color: teal;
+}
+
 .form-group {
     margin-bottom: 20px;
 }
@@ -263,17 +281,49 @@ text-align: center;
 .form-group label {
     display: block;
     margin-bottom: 5px;
-    margin-left: 210px;
     text-align: justify;
+    margin-left: 160px;
 }
 
-.form-group input[type="text"]
-.form-group input[type="password"]{
-    width: 50%;
-    padding: 20px;
+#pump-sales-display {
+    float: right;
+    width: 400px;
+    max-height: 250px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-right: 80px;
+    margin-top: 170px;
+    padding: 10px;
+    
+}
+
+#pump-sales-display ul {
+    list-style: none;
+    text-align: justify;
+    margin-left: -10px;
+}
+
+#pump-sales-display ul li {
+    text-align: justify;
+    margin-left: 0px;
+}
+
+#pump-sales-display p {
+    margin-left: 2px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type='date'],
+.form-group select[name='pump'],
+.form-group select[name='tank'],
+.form-group input[type='number']{
+    width: 60%;
+    padding: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
-
+    margin-left: 40px;
+    text-align: justify;
 }
 
 .btn {
@@ -346,6 +396,31 @@ footer {
         margin-left: 85%;
         position: relative;
     }
+    
+.pump-sales-container {
+    flex-direction: column;
+    display: block;
+    padding: 10px;
+}
+
+.container-pump {
+    width: auto;
+    margin: 0;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#pump-sales-display {
+    float: none;
+    width: 450px;
+    margin-top: 30px;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+
 
 
 .logo {
@@ -374,34 +449,25 @@ footer {
 
 .dashboard_2 {
     height: 600px;
+    padding-left: 0;
 }
 #admin_dashb_items_2 {
     flex-direction: column;
-    margin-top: 250px;
-    width: 100%;
-    padding: 2px;
+    margin-top: 192px;
+    width: 98.5%;
+    padding: 1px;
     margin-left: 0%;
     float: none;
-    justify-items: center;
+    
 }
 
 #admin_dashb_items{
     flex-direction: column;
     margin-top: 100px;
-    width: 80%;
-    padding: 2px;
+    width: 72%;
     margin-left: 0px;
     float: none;
 }
-#admin_dashb_items .dashboard_item p {
-    text-align: center;
-    justify-content: center;
-}
-
-.dashboard_item {
-    margin-left: 0px;
-}
-
 
 .navmenu li a {
     margin: 0 15px;
