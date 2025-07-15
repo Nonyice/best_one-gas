@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pump Sales</title>
+    <title>Submit Money</title>
     <style>
-
-    /* static/styles.css */
-
+       
 html, body{
 	margin: 0 auto !important;
     float: none !important;
@@ -131,84 +129,81 @@ header {
     color: bisque;
 }
 
+.user-info {
+    margin-top: 7px;
+    color: green;
+    width: 180px;
+    padding: 2px;
+}
+
 .container {
-    width: 40%;
-    margin: 80px auto;
-    padding: 10px;
-    box-shadow: 0px 0.5px 0px 0.8px;
-    border-radius: 5px;
+    width: 600px;
+   padding: 20px;
+    margin-left: 28%;
     text-align: center;
-}
-
-
-
-        
-.form-group {
-    margin: inherit;
-    margin-bottom: 10px;
-}
-
-.form-group label {
-    display: flex;
-    margin-bottom: 5px;
-    text-align: justify;
-    margin-left: 25%;
-    font-family: cursive;
-    font-style: normal;
-    font-weight: 200;
-}
-
-
-
-.form-group input[type="text"],
-.form-group input[type="password"],
-.form-group input[type='date'],
-.form-group select[name='tank_name'],
-.form-group select[name='pump_id'],
-.form-group select[name='shift'],
-.form-group select[name='tank_id'],
-.form-group select[name='attendant_name'],
-.form-group input[type='number']{
-    width: 55%;
-    padding: 8px;
-    border: 0.1px solid #cebdbd;
-    border-radius: 5px;
-    margin-left: 30px;
-    text-align: justify;
-    font-size: medium;
-    font-family: serif;
-}
-
-button {
-    display: inline-block;
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
+    padding-top: 20px;
 }
 
 a {
-    text-decoration: none;
-    color: cadetblue;
+            text-decoration: none;
+            color: cadetblue;
+        }
+
+
+
+.form-group {
+    width: 100%;
+    margin: 80px auto;
+    padding: 5px;
+    padding-top: 20px;
+    box-shadow: 0.2px 0.2px 1px 1.2px;
+    border-radius: 5px;
+    text-align: center;
+    height: auto;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: justify;
+    margin-left: 110px;
+    margin-bottom: 10px;
+}
+
+.form-group input[type="text"],
+.form-group input[type='date'],
+.form-group input[type='number'] {
+    width: 60%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 10px;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+.form-group select[name='attendant_name'],
+.form-group select[name='pump_id'] {
+    width: 62%;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+button {
+    border-radius: 4px;
     padding: 5px;
 }
 
-a:hover {
-    color: rgb(245, 138, 8);
+button:hover {
+    background-color: rgb(174, 189, 189);
 }
+
 
 .power{
     background-color: black;
     text-align: center;
     padding: 20px;
     position: relative;
-    height: 30px;
 }
 
 footer {
@@ -216,11 +211,34 @@ footer {
     flex-direction: column;
     padding-top: 2px;
     justify-content: center;
-    margin-top: 80px;
+    margin-top: 20px;
     background-color: grey;
 }
 
+.flash-message {
+            font-weight: bold;
+        }
 
+        .flash-success {
+            color: #155724;
+            font-weight: bold;
+        }
+
+        .flash-warning {
+            color: rgb(236, 236, 14);
+            font-weight: bold;
+        }
+
+        a {
+            text-decoration: none;
+            color: cadetblue;
+        }
+
+
+.power {
+    height: 30px;
+    padding-top: 5px;
+}
 .power p {
     left: 13%;
     margin-bottom: 25px;
@@ -238,24 +256,9 @@ footer {
   color: white;
 }
 
-.flash-message {
-            font-weight: bold;
-        }
-
-        .flash-success {
-            color: #155724;
-            font-weight: bold;
-        }
-
-        .flash-danger {
-            color: red;
-            font-weight: bold;
-        }
-
 
 /* Media query for mobile responsiveness */
 @media (max-width: 768px) {
-
     header {
         padding: 1px;
         padding-right: 2px;
@@ -286,7 +289,56 @@ footer {
 }
 
 
-    .navmenu  {
+
+
+    .container {
+    width: 90%;
+    margin: 10px auto;
+    padding: 5px;
+    
+    border-radius: 5px;
+    text-align: center;
+}
+
+.form-group {
+    
+    width: 90%;
+    margin: 40px auto;
+    padding: 10px;
+    padding-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: justify;
+    margin-left: 38px;
+    margin-bottom: 10px;
+}
+
+.form-group input[type="text"],
+.form-group input[type='date'],
+.form-group input[type='number'] {
+    width: 80%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 10px;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+.form-group select[name='attendant_name'],
+.form-group select[name='pump_id'] {
+    width: 82%;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+
+
+.navmenu  {
     position:relative;
     top: 8px;
     left: 62%;
@@ -335,25 +387,19 @@ footer {
     display: block;
 }
 
-   .container {
-    width: 80%;
-    margin: 10px auto;
-    padding: 5px;
-    box-shadow: 0.2px 0.3px 0.8px 0.8px;
-    border-radius: 5px;
-    text-align: center;
 }
-footer {
-    margin-top: 20px;
-}
-}
-   
+ 
+
+
+
     </style>
 </head>
-<body> 
+
+<body>
     <header>   
         
-        <div class="logo">Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co.</div>   
+        <div class="logo">
+            Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co.</div>   
         <!-- Navigation menu-->
                 <div class="menu-toggle">
                     <div class="bar"></div>
@@ -376,88 +422,83 @@ footer {
                 </nav>
                 
         </header>
-        <div class="container">
-            <h2>Pump Sales Entry</h2>
-            <p style="font-size: small; font-style: italic; color: rgb(155, 155, 10);">Carefully enter the readings from the pumps in the fields below. Note that opening readings are mirrored from the closing of the previous sales sessions. Do well to confirm values are accurate.</p><br>
-    <div class="flash">
-        <!-- Flash Messages -->
-        {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            {% for category, message in messages %}
-                <div class="flash-message flash-{{ category }}">{{ message }}</div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
-    </div>
-            
-    
-            <form action="{{ url_for('pump_sales') }}" method="POST">
-                
-                <div class="form-group">
 
-                    <label for="date">Date:</label>
-                    <input type="date" id="date" name="date" required>
-                </div>
-            
-                <div class="form-group">
-                    <label for="shift">Shift:</label>
-                    <select id="shift" name="shift" required>
-                    <option value="morning">Morning</option>
-                    <option value="afternoon">Afternoon</option>
-                </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="pump_id">Pump:</label>
-                    <select id="pump_id" name="pump_id">
-                        {% for pump in pumps %}
-                            <option value="{{ pump[0] }}">{{ pump[1] }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-               
-            <div class="form-group">
-                <label for="closing_reading">Closing Reading:</label>
-                <input type="number" step="0.01" id="closing_reading" name="closing_reading" required><br>
-            </div>
-                
-            <div class="form-group">
-                <label for="rtt">RTT:</label>
-                <input type="number" step="0.01" id="rtt" name="rtt" required>
-            </div>
-                
-            <div class="form-group">
-                <label for="attendant_name">Attendant:</label>
-                <select id="attendant_name" name="attendant_name">
-                    {% for attendant in attendants %}
-                        <option value="{{ attendant[1] }}">{{ attendant[1] }}</option>
+    <div class="container">
+            <h1>Money Submission</h1>
+            <p>Track daily revenues across all channels. Ensure to capture customer credits and log them accordingly at the customer credits section</p><br>
+            <p style="color: rgb(221, 127, 127); font-size: small;"><i style="font-weight: bold;">CAUTION!</i> Do ensure all submisions for a sales session are completed before the price of products are updated if need be! This is key!!</p>
+           
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for category, message in messages %}
+                        <li class="flash-message flash-{{ category }}">{{ message }}</li>
                     {% endfor %}
-                </select>
-            
-            </div>
-                
-                <button type ="submit">Submit Sales</button>
-            </form>
+                </ul>
+            {% endif %}
+        {% endwith %}
 
+    <div class="form-group">
 
-
-            
-        </div>
+        <form action="{{ url_for('submit_money') }}" method="POST">
+            <!-- Attendant Selection -->
+            <label for="attendant_name">Select Attendant:</label>
+            <select name="attendant_name" id="attendant_name" required>
+                {% for attendant in attendants %}
+                <option value="{{ attendant[0] }}">{{ attendant[0] }}</option>
+                {% endfor %}        
+            </select>
     
+            <!-- Pump Selection -->
+            <label for="pump_id">Select Pump:</label>
+            <select name="pump_id" id="pump_id" required>
+                {% for pump in pumps %}
+                <option value="{{ pump[0] }}">{{ pump[1] }}</option>
+                {% endfor %}
+            </select>
     
+            <!-- Date -->
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+    
+            <!-- Input fields for different submission methods -->
+            <label for="cash">Cash:</label>
+            <input type="number" id="cash" name="cash" step="0.01" placeholder="0.00" required>
+            
+            <label for="pos1">POS 1:</label>
+            <input type="number" id="pos1" name="pos1" step="0.01" placeholder="0.00">
+            
+            <label for="pos2">POS 2:</label>
+            <input type="number" id="pos2" name="pos2" step="0.01" placeholder="0.00">
+            
+            <label for="transfers">Transfers:</label>
+            <input type="number" id="transfers" name="transfers" step="0.01" placeholder="0.00">
+    
+            <label for="customer_credits">Customer Credits:</label>
+            <input type="number" name="customer_credits" step="0.01" placeholder="0.00"><br><br>
+    
+            <!-- Submit button -->
+            <button type="submit">Submit Funds</button>
+        </form><br>
+        <p style="color: rgb(202, 202, 96);">Please use the Home link in the navigation bar to go back to the dashboard</p>
 
+    
+    </div>
+
+    
+    </div>
+    
     <footer>
         <div class="copyright">
-            <p>copyright &copy;2024 <a href="#">Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co. All Rights Reserved</a></p>
+            <p>copyright &copy;2024 <a href="#">
+                Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co. All Rights Reserved</a></p>
         </div>
         <div class="power">
             <p style="color: aliceblue;">Powered By PlimsolTech</p>
         </div>
     </footer>
 
-    
-</body>
 
-<script src="/static/toggle.js"></script>
-<script src="/static/time.js"></script>
+   </body>
+   <script src="/static/toggle.js"></script>
 </html>

@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>Welcome to the official work station of 
+        Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co.</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="stylesheet" href="https://cdn.cloudwares.com/css/webfonts.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
@@ -12,22 +13,42 @@
 <body>
     <header>   
         
-<div class="logo">BEST 0NE GAS & PET Mkt</div>   
+<div class="logo">Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co.</div>   
 <!-- Navigation menu-->
 {% if 'username' in session %}
+
+<!-- Navigation menu-->
+<div class="menu-toggle">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+</div>
+
 <nav class="navmenu">
     <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/tanks">Tanks</a></li>
-        <li><a href="/pump_sales">Sales</a></li>
-        <li><a href="revenue.html">Revenue</a></li>
-        <li><a href="bar.html">Bar</a></li>
+        
+       <li><a href="/">Home</a></li> 
+       <li><a href="/underground_tanks">Tank Dipping</a></li>
+        <li><a href="/pump_sales">Pump Sales</a></li>
+        <li><a href="/revenue">Revenue Management</a></li>
+        <li><a href="/bar">Bar/Restaurant</a></li>
+        <li><a href="/reports">Reports</a></li>
+    
     </ul>
+        
 </nav>
 <div class="user-info">
     Welcome, {{ session['username'] }}! <a href="{{ url_for('logout') }}">Logout</a>
 </div>
+
 {% else %}
+
+<!-- Navigation menu-->
+<div class="menu-toggle">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+</div>
 <nav class="navmenu_2">
     <ul>
         <li><a href="/">Home</a></li>
@@ -35,15 +56,19 @@
         <li><a href="/admin_login">Admin</a></li>
     </ul>
 </nav>
+</header>
+
 {% endif %}
         
-</header>
+
+
     <div class="date_time">
         <p>{{current_date}}</p>
     </div>
     <p id="current_time" style="float: right; margin-top: -40px; margin-right: 10px; padding: 0 10px; color: black; font-weight: bold;"></p>
-    <div class="container">
-        <h1>Best One Gas & Pet Mkt Co Ltd</h1>
+   
+    <div class="container-home">
+        <h1>Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co.</h1>
         {% if 'username' in session %}
             {% if session['is_admin'] %}
                 <p>You just left your dashboard, {{ session['username'] }}! You are logged in as an admin, return to your dashboard <a href="{{ url_for('admin_dashboard_2') }}">Admin Dashboard</a></p>
@@ -58,16 +83,40 @@
     
 
     <footer>
+        <div class="footer-socials">
+            
+                <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                
+            </div>
+
         <div class="copyright">
-            <p>copyright &copy;2024 <a href="#">BEST ONE GAS: All Rights Reserved</a></p>
+            <p>copyright &copy;2024 <a href="#">Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co. All Rights Reserved.</a></p>
         </div>
         <div class="power">
             <p style="color: aliceblue;">Powered By PlimsolTech</p>
         </div>
     </footer>
 
-    <script src="/static/toggle.js"></script>
-    <script src="/static/time.js"></script>
+    
+    <script>
+        // Toggle Menu
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.navmenu');
+        const navMenu2 = document.querySelector('.navmenu_2');
+
+        menuToggle.addEventListener('click', () => {
+            if (navMenu) navMenu.classList.toggle('active');
+            if (navMenu2) navMenu2.classList.toggle('active');
+        });
+    </script>
+
     
 </body>
+
+<script src="/static/toggle.js"></script>
+<script src="/static/toggle_2.js"></script>
+<script src="/static/time.js"></script>
 </html>

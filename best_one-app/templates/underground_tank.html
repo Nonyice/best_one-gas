@@ -4,14 +4,367 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tank Haulage Input</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Underground Tank Ullage</title>
+    <link rel="stylesheet" href="https://cdn.cloudwares.com/css/webfonts.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <style>
+
+    /* static/styles.css */
+
+html, body{
+	margin: 0 auto !important;
+    float: none !important;
+    padding: 0;
+    background-color: whitesmoke;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+}
+
+.menu-toggle {
+    display: none;
+     flex-direction: column;
+     cursor: pointer;
+     padding: 10px;
+ }
+
+  
+ .bar {
+     width: 25px;
+     height: 3px;
+     background-color: whitesmoke;
+     margin: 3px 0;
+ }
+ 
+
+ .navmenu {
+    position: relative;
+    flex-direction: row;
+    left: 5%;
+    font-size: 16px;
+    padding: 2px;
+    margin-top: 1px;
+    display: flex;
+    column-gap: 10px;
+    width: 55%;
+    justify-content: left;
+}
+
+.logo {
+    left: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bolder;
+    color: lime;
+    float: left;
+    margin-top: 1%;
+    width: 505px;
+    padding: 5px;
+}
+
+header {
+    background-color: rgb(12, 68, 68);
+    position: relative;
+    height: 60px;
+    padding: 5px;
+}
+
+.date_time {
+    padding: 2px 5px;
+    color: green;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.current_time {
+    background-color: aquamarine;
+    height: auto;
+    width: 200px;
+    float: right;
+    margin-top: -45px;
+}
+
+.navmenu_2 {
+    left: 80%;
+    position: relative;
+    flex-direction: row;
+    left: 50%;
+    padding: 2px;
+    margin-top: 20px;
+    display: block;
+    column-gap: 10px;
+    width: 55%;
+    justify-content: left;
+}
+
+.navmenu li {
+    display: inline;
+    margin: 5px;
+    font-style: normal;
+    font-size: 18px;
+    margin-left: 2px;
+}
+
+.navmenu_2 li {
+    display: inline;
+    margin: 5px;
+    font-style: normal;
+    font-size: 18px;
+    margin-left: 2px;
+}
+
+
+.navmenu li a {
+    text-decoration: none;
+    color: azure;
+}
+
+.navmenu_2 li a {
+    text-decoration: none;
+    color: azure;
+}
+
+.navmenu li a:hover {
+    color: bisque;
+}
+
+.navmenu_2 li a:hover {
+    color: bisque;
+}
+
+.container {
+    width: 40%;
+    margin: 35px auto;
+    padding: 10px;
+    box-shadow: 0.2px 0.3px 0.8px 0.8px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+
+        
+.form-group {
+    margin: inherit;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    display: flex;
+    margin-bottom: 5px;
+    text-align: justify;
+    margin-left: 25%;
+    font-family: cursive;
+    font-style: normal;
+    font-weight: 200;
+}
+
+
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type='date'],
+.form-group select[name='tank_name'],
+.form-group select[name='pump_id'],
+.form-group select[name='shift'],
+.form-group select[name='tank_id'],
+.form-group select[name='attendant_name'],
+.form-group input[type='number']{
+    width: 55%;
+    padding: 8px;
+    border: 0.1px solid #cebdbd;
+    border-radius: 5px;
+    margin-left: 30px;
+    text-align: justify;
+    font-size: medium;
+    font-family: serif;
+}
+
+button {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(173, 182, 182);
+    padding: 5px;
+}
+
+a:hover {
+    color: rgb(245, 138, 8);
+}
+
+.power{
+    background-color: black;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+footer {
+    position: relative;
+    flex-direction: column;
+    padding-top: 2px;
+    justify-content: center;
+    margin-top: 80px;
+    background-color: grey;
+}
+
+
+.power {
+    height: 30px;
+    padding-top: 5px;
+}
+.power p {
+    left: 13%;
+    margin-bottom: 25px;
+  }
+.copyright{
+    margin-top: 25px;
+    padding-bottom: 5px;
+}
+.copyright p{
+   margin-left: 15px;
+   color: black;
+}
+
+.copyright a{
+  color: white;
+}
+.footer-socials {
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+
+.flash-message {
+            font-weight: bold;
+        }
+
+        .flash-success {
+            color: #155724;
+            font-weight: bold;
+        }
+
+        .flash-danger {
+            color: red;
+            font-weight: bold;
+        }
+
+
+
+
+
+/* Media query for mobile responsiveness */
+@media (max-width: 768px) {
+
+    header {
+        padding: 1px;
+        padding-right: 2px;
+    }
+
+    .logo {
+        font-size: 14px;
+        margin-top: 20px;
+    }
+    
+    
+    .menu-toggle {
+            display: block;
+            margin-top: 12px;
+            margin-left: 92%;
+            position: relative;
+            width: 1%;
+        }
+.copyright p{
+   margin-left: 15px;
+   color: black;
+   font-size: 12px;
+}
+
+.copyright a{
+  color: white;
+  font-size: 10px;
+}
+
+
+    .navmenu  {
+    position:relative;
+    top: 5px;
+    left: 62%;
+    column-gap: 5px;
+    display: none; 
+    flex-direction: column;
+    background-color: #333;
+    color: #fff; 
+    width: 30%;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding-right: 30px;
+    contain: content;
+    height: auto;
+}
+
+
+    .navmenu ul {
+        margin-top: -10px;
+        flex-direction: column;
+        display: flex;
+        width: 100%;
+        margin: 0px;
+}
+
+.navmenu li {
+    text-align: center;
+    margin-left: -32px;
+    padding-left: 12px;
+    font-size: 14px;
+}
+
+.navmenu  li a {
+    display: flex;
+
+}
+
+.navmenu li a:hover {
+    color: rgb(104, 219, 93);
+}
+
+
+
+.navmenu.active {
+    display: block;
+}
+    .container {
+    width: 80%;
+    margin: 10px auto;
+    padding: 5px;
+    box-shadow: 0.2px 0.3px 0.8px 0.8px;
+    border-radius: 5px;
+    text-align: center;
+}
+}
+</style>
     
 </head>
 <body>
     <header>   
         
-        <div class="logo">BEST 0NE GAS</div>   
+        <div class="logo">Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co.</div>   
         <!-- Navigation menu-->
                 <div class="menu-toggle">
                     <div class="bar"></div>
@@ -23,63 +376,158 @@
                     <ul>
                         
                        <li><a href="/">Home</a></li> 
-                       <li><a href="/tanks">Tanks</a></li>
-                        <li><a href="/pump_sales">Sales</a></li>
-                        <li><a href="revenue.html">Revenue</a></li>
-                        <li><a href="bar.html">Bar</a></li>
+                       <li><a href="/underground_tanks">Tank Dipping</a></li>
+                        <li><a href="/pump_sales">Pump Sales</a></li>
+                        <li><a href="/revenue">Revenue Management</a></li>
+                        <li><a href="/bar">Bar/Restaurant</a></li>
+                        <li><a href="/reports">Reports</a></li>
                     
                     </ul>
                         
                 </nav>
                 
-        </header>
-    <div class="container">
-        <h1>Tank Haulage Input</h1>
-
-    <form action="/tanks" method="post">
-        <div class="form-group">
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date" required><br><br>
-    </div>
-
-    <div class="form-group">
-        <label for="tank">Select Tank:</label>
-        <select id="tank" name="tank" required>
-            <option value="PMS Tank 1">PMS Tank 1</option>
-            <option value="PMS Tank 2">PMS Tank 2</option>
-            <option value="AGO Tank 1">AGO Tank 1</option>
-            <option value="AGO Tank 2">AGO Tank 2</option>
-        </select>
-    </div><br><br>
-        
-        
-            <div class="form-group">
-                <label for="opening_stock">Opening Stock:</label>
-                <input type="number" id="opening_stock" name="opening_stock" required><br><br>
-            </div>
-    
-            <div class="form-group">
-                <label for="received_stock">Receieved Stock:</label>
-                <input type="number" id="received_stock" name="received_stock" required><br><br>
-            </div>
+        </header>    <div class="container mt-5">
+                <h2>Underground Tank Ullage</h2>
+                <p style="font-size: small; font-style: italic; color: rgb(141, 98, 73);" >Dip your tank every morning and ensure to enter accurate values of the dipping. Note that it is preferable to dip before start of business than at close of business when tank's content is yet unsettled!</p>
+                <div class="flash">
+                    <!-- Flash Messages -->
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="flash-message flash-{{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                </div>
             
-            <!-- Add a data-date attribute to identify the date for each closing dipping -->
-            <div class="form-group">
-                <label for="closing_stock">Closing Stock:</label>
-                <input type="number" id="closing_stock" name="closing_stock" required><br><br>
-            </div>
+                <form id="form-group" action="/underground_tanks" method="post">
+
+                    <div class="form-group">
+                        <label for="date">Date:</label>
+                        <input type="date" class="form-control" id="date" name="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tank_name">Tank</label>
+                        <select name="tank_id">
+                            {% for tank in tanks %}
+                                <option value="{{ tank[0] }}">{{ tank[1] }}</option>
+                            {% endfor %}
+                        </select>
+                        
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="received_stock">Received Stock:</label>
+                        <input type="number" class="form-control" id="received_stock" name="received_stock" step="0.01" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="closing_stock">Closing Stock:</label>
+                        <input type="number" class="form-control" id="closing_stock" name="closing_stock" step="0.01" min="0" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
             
-            <button type="submit">Submit</button>
-        </form>
+
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', () => {
+                            const receivedStockInput = document.querySelector('#received_stock');
+
+                            // Create hidden fields for additional data
+                            const ratePerLitreInput = document.createElement('input');
+                            ratePerLitreInput.type = 'hidden';
+                            ratePerLitreInput.name = 'rate_per_litre';
+                            document.querySelector('form').appendChild(ratePerLitreInput);
+
+                            const vendorInput = document.createElement('input');
+                            vendorInput.type = 'hidden';
+                            vendorInput.name = 'vendor';
+                            document.querySelector('form').appendChild(vendorInput);
+
+                            const paymentsInput = document.createElement('input');
+                            paymentsInput.type = 'hidden';
+                            paymentsInput.name = 'payments';
+                            document.querySelector('form').appendChild(paymentsInput);
+
+                            const outstandingDebtsInput = document.createElement('input');
+                            outstandingDebtsInput.type = 'hidden';
+                            outstandingDebtsInput.name = 'outstanding_debts';
+                            document.querySelector('form').appendChild(outstandingDebtsInput);
+
+                            receivedStockInput.addEventListener('change', () => {
+                                const receivedStock = parseFloat(receivedStockInput.value);
+
+                                // Reset all values initially
+                                ratePerLitreInput.value = '0.00';
+                                vendorInput.value = '';
+                                paymentsInput.value = '0.00';
+                                outstandingDebtsInput.value = '0.00';
+
+                                // Check if received stock is greater than 0
+                                if (receivedStock > 0) {
+                                    const rate = prompt('Enter the rate per litre for the received product:');
+                                    if (rate && !isNaN(rate) && parseFloat(rate) > 0) {
+                                        ratePerLitreInput.value = parseFloat(rate).toFixed(2);
+                                    } else {
+                                        alert('Invalid rate entered. Please provide a valid positive rate.');
+                                        receivedStockInput.value = '';
+                                        return;
+                                    }
+
+                                    const vendor = prompt('Enter the vendor for the received product:');
+                                    if (vendor) {
+                                        vendorInput.value = vendor.trim();
+                                    } else {
+                                        alert('Vendor is required.');
+                                        receivedStockInput.value = '';
+                                        return;
+                                    }
+
+                                    const payments = prompt('Enter the payment amount for the received product:');
+                                    if (payments && !isNaN(payments) && parseFloat(payments) >= 0) {
+                                        paymentsInput.value = parseFloat(payments).toFixed(2);
+                                    } else {
+                                        alert('Invalid payment amount. Please provide a valid positive number.');
+                                        receivedStockInput.value = '';
+                                        return;
+                                    }
+
+                                    const outstandingDebts = prompt('Enter the outstanding debt for the received product:');
+                                    if (outstandingDebts && !isNaN(outstandingDebts) && parseFloat(outstandingDebts) >= 0) {
+                                        outstandingDebtsInput.value = parseFloat(outstandingDebts).toFixed(2);
+                                    } else {
+                                        alert('Invalid outstanding debt amount. Please provide a valid positive number.');
+                                        receivedStockInput.value = '';
+                                        return;
+                                    }
+                                } 
+                                // No additional fields to prompt if received stock is 0, defaults are already set
+                            });
+                        });
+
+                </script>
+                
+
+                            </div>
+            
+     <footer>
+        <div class="footer-socials">
+            
+            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            
         </div>
-        
-        
-        <footer>
-            <div class="copyright">
-                <p>copyright &copy;2024 <a href="#">BEST ONE GAS: All Rights Reserved</a></p>
+        <div class="copyright">
+            <p>copyright &copy;2024 <a href="#">Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co. All Rights Reserved.</a></p>
             </div>
             <div class="power">
-                <p style="color: aliceblue;">Powered By PlimsolTech</p>
+            <p style="color: aliceblue;">Powered By PlimsolTech</p>
             </div>
         </footer>
 </body>

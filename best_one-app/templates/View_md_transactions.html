@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pump Sales</title>
+    <title>View MD's transactions</title>
     <style>
 
-    /* static/styles.css */
-
+        
 html, body{
 	margin: 0 auto !important;
     float: none !important;
@@ -67,6 +66,7 @@ header {
     padding: 5px;
 }
 
+
 .date_time {
     padding: 2px 5px;
     color: green;
@@ -94,6 +94,15 @@ header {
     column-gap: 10px;
     width: 55%;
     justify-content: left;
+}
+
+a {
+    text-decoration: none;
+    color: cadetblue;
+}
+
+a:hover {
+    color: rgb(82, 122, 82);
 }
 
 .navmenu li {
@@ -132,77 +141,57 @@ header {
 }
 
 .container {
-    width: 40%;
-    margin: 80px auto;
-    padding: 10px;
-    box-shadow: 0px 0.5px 0px 0.8px;
-    border-radius: 5px;
     text-align: center;
+    margin: 50px auto;
+    padding: 60px;
+    box-shadow: 0.2px 0.3px 0.8px 0.8px;
+    width: 80%;
+    height: auto;
+    border-radius: 5px;
 }
 
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-left: 8%;
+    margin: 20px auto;
+}
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+    border-radius: 5px;
+}
+th {
+    background-color: #f2f2f2;
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+
+
+a {
+            text-decoration: none;
+            color: cadetblue;
+        }
+
+.flash-info {
+    color: blue
+}
+
+.flash-success {
+    color: green
+}
+
+
+.flash-danger {
+    color: red
+}
 
 
         
-.form-group {
-    margin: inherit;
-    margin-bottom: 10px;
-}
-
-.form-group label {
-    display: flex;
-    margin-bottom: 5px;
-    text-align: justify;
-    margin-left: 25%;
-    font-family: cursive;
-    font-style: normal;
-    font-weight: 200;
-}
-
-
-
-.form-group input[type="text"],
-.form-group input[type="password"],
-.form-group input[type='date'],
-.form-group select[name='tank_name'],
-.form-group select[name='pump_id'],
-.form-group select[name='shift'],
-.form-group select[name='tank_id'],
-.form-group select[name='attendant_name'],
-.form-group input[type='number']{
-    width: 55%;
-    padding: 8px;
-    border: 0.1px solid #cebdbd;
-    border-radius: 5px;
-    margin-left: 30px;
-    text-align: justify;
-    font-size: medium;
-    font-family: serif;
-}
-
-button {
-    display: inline-block;
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-a {
-    text-decoration: none;
-    color: cadetblue;
-    padding: 5px;
-}
-
-a:hover {
-    color: rgb(245, 138, 8);
-}
-
 .power{
     background-color: black;
     text-align: center;
@@ -210,6 +199,8 @@ a:hover {
     position: relative;
     height: 30px;
 }
+
+
 
 footer {
     position: relative;
@@ -237,20 +228,6 @@ footer {
 .copyright a{
   color: white;
 }
-
-.flash-message {
-            font-weight: bold;
-        }
-
-        .flash-success {
-            color: #155724;
-            font-weight: bold;
-        }
-
-        .flash-danger {
-            color: red;
-            font-weight: bold;
-        }
 
 
 /* Media query for mobile responsiveness */
@@ -288,7 +265,7 @@ footer {
 
     .navmenu  {
     position:relative;
-    top: 8px;
+    top: 5px;
     left: 62%;
     column-gap: 5px;
     display: none; 
@@ -334,33 +311,40 @@ footer {
 .navmenu.active {
     display: block;
 }
-
-   .container {
-    width: 80%;
-    margin: 10px auto;
-    padding: 5px;
+    .container {
+    margin: 80px auto;
+    width: 95%;
+    padding: 10px;
     box-shadow: 0.2px 0.3px 0.8px 0.8px;
     border-radius: 5px;
     text-align: center;
 }
-footer {
-    margin-top: 20px;
+
+table {
+    width: 100%;
+    margin-left: 0;
 }
+
+table th, table td {
+           font-size: 14px;
+        }
 }
    
-    </style>
-</head>
-<body> 
+
+</style>
+<body>
+    
     <header>   
         
-        <div class="logo">Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co.</div>   
+        <div class="logo">
+
+            Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co.</div>   
         <!-- Navigation menu-->
                 <div class="menu-toggle">
                     <div class="bar"></div>
                     <div class="bar"></div>
                     <div class="bar"></div>
                 </div>
-        
                 <nav class="navmenu">
                     <ul>
                         
@@ -376,88 +360,71 @@ footer {
                 </nav>
                 
         </header>
-        <div class="container">
-            <h2>Pump Sales Entry</h2>
-            <p style="font-size: small; font-style: italic; color: rgb(155, 155, 10);">Carefully enter the readings from the pumps in the fields below. Note that opening readings are mirrored from the closing of the previous sales sessions. Do well to confirm values are accurate.</p><br>
-    <div class="flash">
-        <!-- Flash Messages -->
+    <div class="container">
+        <h2>MD's Transaction log</h2>
+
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
-            {% for category, message in messages %}
-                <div class="flash-message flash-{{ category }}">{{ message }}</div>
-            {% endfor %}
+            <ul>
+                {% for category, message in messages %}
+                    <div class="flash-message flash-{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
         {% endif %}
     {% endwith %}
+
+
+<form action="{{ url_for('view_md_transactions') }}" method="GET">
+
+    <label for="start_date">Start Date:</label>
+    <input type="date" name="start_date" required>
+
+    <label for="end_date">End Date:</label>
+    <input type="date" name="end_date" required>
+
+    <button type="submit">Filter</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Transaction Type</th>
+            <th>Amount</th>
+            <th>Purpose</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for transaction in transactions %}
+        <tr>
+            <td>{{ transaction[0] }}</td>
+            <td>{{ transaction[1] }}</td>
+            <td>{{ transaction[2] }}</td>
+            <td>{{ transaction[3] }}</td>
+        </tr>
+        {% endfor %}
+
     </div>
-            
-    
-            <form action="{{ url_for('pump_sales') }}" method="POST">
-                
-                <div class="form-group">
+        </tbody>
+</table>
 
-                    <label for="date">Date:</label>
-                    <input type="date" id="date" name="date" required>
-                </div>
-            
-                <div class="form-group">
-                    <label for="shift">Shift:</label>
-                    <select id="shift" name="shift" required>
-                    <option value="morning">Morning</option>
-                    <option value="afternoon">Afternoon</option>
-                </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="pump_id">Pump:</label>
-                    <select id="pump_id" name="pump_id">
-                        {% for pump in pumps %}
-                            <option value="{{ pump[0] }}">{{ pump[1] }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-               
-            <div class="form-group">
-                <label for="closing_reading">Closing Reading:</label>
-                <input type="number" step="0.01" id="closing_reading" name="closing_reading" required><br>
-            </div>
-                
-            <div class="form-group">
-                <label for="rtt">RTT:</label>
-                <input type="number" step="0.01" id="rtt" name="rtt" required>
-            </div>
-                
-            <div class="form-group">
-                <label for="attendant_name">Attendant:</label>
-                <select id="attendant_name" name="attendant_name">
-                    {% for attendant in attendants %}
-                        <option value="{{ attendant[1] }}">{{ attendant[1] }}</option>
-                    {% endfor %}
-                </select>
-            
-            </div>
-                
-                <button type ="submit">Submit Sales</button>
-            </form>
+</div>
 
 
+<footer>
+    <div class="copyright">
+        <p>copyright &copy;2024 <a href="#">
 
-            
-        </div>
-    
-    
-
-    <footer>
-        <div class="copyright">
-            <p>copyright &copy;2024 <a href="#">Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co. All Rights Reserved</a></p>
-        </div>
-        <div class="power">
-            <p style="color: aliceblue;">Powered By PlimsolTech</p>
-        </div>
-    </footer>
-
-    
+            Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co. All Rights Reserved</a></p>
+    </div>
+    <div class="power">
+        <p style="color: aliceblue;">Powered By PlimsolTech</p>
+    </div>
+</footer>
 </body>
-
 <script src="/static/toggle.js"></script>
-<script src="/static/time.js"></script>
 </html>
+
+
+
+

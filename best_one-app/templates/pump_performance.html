@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tank Ullage Displa</title>
-    <link rel="stylesheet" href="https://cdn.cloudwares.com/css/webfonts.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <title>Pump Performance</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
 
-/* static/styles.css */
+        
+    /* static/styles.css */
 
 html, body{
 	margin: 0 auto !important;
@@ -20,17 +25,6 @@ html, body{
     background-size: cover;
     height: 100%;
 }
-
-.container {
-    text-align: center;
-    margin: 120px auto;
-}
-
-a {
-    text-decoration: none;
-
-}
-
 
 .menu-toggle {
     display: none;
@@ -48,7 +42,7 @@ a {
  }
  
 
-.navmenu {
+ .navmenu {
     position: relative;
     flex-direction: row;
     left: 5%;
@@ -95,6 +89,7 @@ header {
     float: right;
     margin-top: -45px;
 }
+
 
 
 .navmenu_2 {
@@ -146,6 +141,26 @@ header {
 }
 
 
+        .container {
+            text-align: center;
+            margin: 80px auto;
+            padding: 20px;
+            box-shadow: 1.1px 0.7px 1.1px 1px;
+            height: auto;
+            border-radius: 5px;
+            width: 95%;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: cadetblue;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -153,12 +168,14 @@ header {
             border-radius: 5px;
             overflow: hidden;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 5px;
         }
 
         th, td {
-            padding: 10px;
+            padding: 2px;
             text-align: center;
             border-bottom: 1px solid #ddd;
+            
         }
 
         th {
@@ -173,22 +190,56 @@ header {
             background-color: #e9e9e9;
         }
 
-        
-.power{
-    background-color: black;
-    text-align: center;
-    padding: 20px;
-    position: relative;
-    height: 30px;
-}
+        form {
+            width: 98%;
+            border-radius: 5px;
+            box-shadow: 0 1px 1px 0;
+            padding: 5px;
+            text-align: center;
+            margin: 10px;
+            column-gap: 5px;
+        }
 
-footer {
+    form select[name='tank_id'],
+    form input[type='date']{
+        padding: 3px;
+        width: 18%;
+        border-radius: 5px;
+        margin: 5px;
+        }
+
+        form label {
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+    button {
+        border-radius: 5px;
+        width: 120px;
+        padding: 0;
+    }
+
+    button:hover {
+        background-color: rgb(211, 211, 238);
+    }
+
+    
+    footer {
     position: relative;
     flex-direction: column;
     padding-top: 2px;
     justify-content: center;
-    margin-top: 80px;
+    margin-top: 160px;
     background-color: grey;
+}
+
+.power{
+    background-color: rgb(12, 12, 12);
+    text-align: center;
+    padding: 5px;
+    position: relative;
+    height: 30px;
 }
 
 
@@ -201,7 +252,7 @@ footer {
     padding-bottom: 5px;
 }
 .copyright p{
-   margin-left: 15px;
+   margin-left: 2px;
    color: black;
 }
 
@@ -209,18 +260,12 @@ footer {
   color: white;
 }
 
-.footer-socials {
-    text-align: center;
-    margin: 10px;
-    padding: 10px;
-}
 
+            
+    /* Media query for mobile responsiveness */
+    @media (max-width: 768px) {
 
-
-        
-/* Media query for mobile responsiveness */
-@media (max-width: 768px) { 
-    header {
+        header {
         padding: 1px;
         padding-right: 2px;
     }
@@ -251,10 +296,9 @@ footer {
 
 
 
-
- .navmenu  {
+    .navmenu  {
     position:relative;
-    top: 5px;
+    top: 8px;
     left: 62%;
     column-gap: 5px;
     display: none; 
@@ -268,11 +312,10 @@ footer {
     padding-right: 30px;
     contain: content;
     height: auto;
-    z-index: 10;
 }
 
 
- .navmenu ul {
+    .navmenu ul {
         margin-top: -10px;
         flex-direction: column;
         display: flex;
@@ -303,23 +346,75 @@ footer {
 }
 
 
+
+    .container {
+            text-align: center;
+            margin-left: 0;
+            padding: 5px;
+            width: 95%;
+            flex-direction: column;
+            display: flex;
+            padding-bottom: 20px;
+            margin: 80px auto;
+        }
+
+    
+        th, td {
+            padding: 5px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            width: 5px;
+            font-size: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-left: 0;
+        }
+
+        form {
+            width: 90%;
+            text-align: justify;
+            font-size: 14px;
+            margin: 20px auto;
+            gap: 2px;
+        }
+
+    
+        form select[name='tank_id'],
+        form input[type='date']{
+        padding: 2px;
+        width: 12%;
+        border-radius: 5px;
+        font-size: 10px;
+        }
+
+        form label {
+            font-family: sans-serif;
+            font-weight: bold;
+            padding: 2px;
+        }
+
 }
+
 
 </style>
 </head>
 <body>
-    
     <header>   
         
         <div class="logo">Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co.</div>   
-
         <!-- Navigation menu-->
                 <div class="menu-toggle">
                     <div class="bar"></div>
                     <div class="bar"></div>
                     <div class="bar"></div>
                 </div>
-        
                 <nav class="navmenu">
                     <ul>
                         
@@ -335,61 +430,75 @@ footer {
                 </nav>
                 
         </header>
-
-        <div class="container">
-            <h1>Tank Ullage Data</h1>
-
-    <div class="display_credit">
-        
-    </div>
+    <div class="container">
     
-    <table border="1">
-        <thead>
+        <h2>Tank Performance Display</h2>
+        <p style="font-size: small; color: rgb(21, 136, 136); font-style: italic;" >You could have overages or shortages as a result of pump performances. Track daily pump performances and effect the necessary measures to optimize the process!</p><br>
+    
+        <!-- Form for selecting tank and date range -->
+        <form method="post" action="{{ url_for('performance') }}">
+            <label for="tank">Select Tank:</label>
+            <select name="tank_id" id="tank">
+                {% for tank in tanks %}
+                    <option value="{{ tank[0] }}">{{ tank[1] }}</option>
+                {% endfor %}
+            </select>
+    
+            <label for="start_date">Start Date:</label>
+            <input type="date" name="start_date" required>
+    
+            <label for="end_date">End Date:</label>
+            <input type="date" name="end_date" required>
+    
+            <button type="submit">Get Performance</button>
+        </form>
+    
+    
+
+    
+        <!-- Performance Data Table -->
+        <table>
             <tr>
                 <th>Date</th>
-                <th>Tank</th>
+                <th>Tank Name</th>
+                <th>Total Sales</th>
                 <th>Opening Stock</th>
                 <th>Received Stock</th>
                 <th>Closing Stock</th>
+                <th>Depletion</th>
+                <th>Performance</th>
             </tr>
-        </thead>
-        <tbody>
-            {% for row in tank_ullage_data %}
+            {% for entry in performance_data %}
             <tr>
-                <td>{{ row[0] }}</td>
-                <td>{{ row[1] }}</td>
-                <td>{{ row[2] }}</td>
-                <td>{{ row[3] }}</td>
-                <td>{{ row[4] }}</td>
+                <td>{{ entry.date }}</td>
+                <td>{{ entry.tank_name }}</td>
+                <td>{{ entry.total_sales }}</td>
+                <td>{{ entry.opening_stock }}</td>
+                <td>{{ entry.received_stock }}</td>
+                <td>{{ entry.closing_stock }}</td>
+                <td>{{ entry.depletion }}</td>
+                <td>{{ entry.performance }}</td>
             </tr>
             {% endfor %}
-        </tbody>
-    </table>
-
-    
-    <div class="return_to" style="margin: 20px;">
-        <a href="{{ url_for('admin_dashboard_2') }}">Return to Dashboard</a>
-    </div>
-
-
-
+        </table>
+        <div class="return_to" style="margin: 30px;">
+            <a href="{{ url_for('admin_dashboard_2') }}">Return to Dashboard</a>
         </div>
+    </div>
         
     <footer>
-        <div class="footer-socials">
-            
-            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            
-        </div>
         <div class="copyright">
             <p>copyright &copy;2024 <a href="#">Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co. All Rights Reserved</a></p>
         </div>
         <div class="power">
             <p style="color: aliceblue;">Powered By PlimsolTech</p>
         </div>
-    </footer>
-</body>
-</html>
+
+    </footer> 
+
+    </body>
+    <script src="/static/toggle.js"></script>
+    </html>
+    
+
+    

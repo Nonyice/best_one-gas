@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tank Ullage Displa</title>
-    <link rel="stylesheet" href="https://cdn.cloudwares.com/css/webfonts.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <title>Bar Inventory</title>
     <style>
 
-/* static/styles.css */
+        
+    /* static/styles.css */
 
 html, body{
 	margin: 0 auto !important;
@@ -20,17 +19,6 @@ html, body{
     background-size: cover;
     height: 100%;
 }
-
-.container {
-    text-align: center;
-    margin: 120px auto;
-}
-
-a {
-    text-decoration: none;
-
-}
-
 
 .menu-toggle {
     display: none;
@@ -48,7 +36,7 @@ a {
  }
  
 
-.navmenu {
+ .navmenu {
     position: relative;
     flex-direction: row;
     left: 5%;
@@ -80,6 +68,10 @@ header {
     padding: 5px;
 }
 
+h3 {
+    margin-left: 0;
+}
+
 .date_time {
     padding: 2px 5px;
     color: green;
@@ -95,6 +87,11 @@ header {
     float: right;
     margin-top: -45px;
 }
+
+form {
+    margin-left: 20%;
+}
+
 
 
 .navmenu_2 {
@@ -126,6 +123,16 @@ header {
     margin-left: 2px;
 }
 
+.return_to {
+    margin-left: 45%;
+    padding: 15px 18px;
+    border-radius: 5px;
+}
+
+.return_to a:hover {
+    color: #c76e6e;
+}
+
 
 .navmenu li a {
     text-decoration: none;
@@ -146,31 +153,56 @@ header {
 }
 
 
+        .container {
+        
+            width: 60%;
+            margin-left: 20%;
+            box-shadow: 0.4px  0.5px 0 1px;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 50px auto;
+            height: auto;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            background-color: #fff;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        th, td {
-            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
             text-align: center;
-            border-bottom: 1px solid #ddd;
         }
-
-        th {
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            margin: 5px;
+        }
+        table th {
             background-color: #f2f2f2;
         }
-
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
+        .low-stock {
+            background-color: #ffcccc;
+        }
+        .normal-stock {
+            background-color: #ccffcc;
+        }
+        
+        .flash-message {
+            font-weight: bold;
         }
 
-        tr:hover {
-            background-color: #e9e9e9;
+        .flash-success {
+            color: #155724;
+            font-weight: bold;
+        }
+
+        .flash-warning {
+            color: rgb(236, 236, 14);
+            font-weight: bold;
+        }
+
+        a {
+            text-decoration: none;
+            color: cadetblue;
         }
 
         
@@ -209,17 +241,11 @@ footer {
   color: white;
 }
 
-.footer-socials {
-    text-align: center;
-    margin: 10px;
-    padding: 10px;
-}
 
 
-
-        
 /* Media query for mobile responsiveness */
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
+
     header {
         padding: 1px;
         padding-right: 2px;
@@ -228,6 +254,12 @@ footer {
     .logo {
         font-size: 14px;
         margin-top: 20px;
+    }
+
+    form {
+        width: 100%;
+        margin-left: 0;
+
     }
     
     
@@ -250,11 +282,9 @@ footer {
 }
 
 
-
-
- .navmenu  {
+    .navmenu  {
     position:relative;
-    top: 5px;
+    top: 8px;
     left: 62%;
     column-gap: 5px;
     display: none; 
@@ -268,11 +298,10 @@ footer {
     padding-right: 30px;
     contain: content;
     height: auto;
-    z-index: 10;
 }
 
 
- .navmenu ul {
+    .navmenu ul {
         margin-top: -10px;
         flex-direction: column;
         display: flex;
@@ -302,24 +331,40 @@ footer {
     display: block;
 }
 
+    .container {
+    margin: 80px auto;
+    width: 95%;
+    padding: 5px;
+    padding-top: 10px;
+    box-shadow: 0.2px 0.3px 0.8px 0.8px;
+    border-radius: 5px;
+    text-align: center;
+}
 
+table th, table td {
+           font-size: 14px;
+        }
+
+.return_to {
+    margin-left: 7%;
+}
 }
 
 </style>
 </head>
 <body>
-    
+
     <header>   
         
-        <div class="logo">Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co.</div>   
+        <div class="logo">
 
+            Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co.</div>   
         <!-- Navigation menu-->
                 <div class="menu-toggle">
                     <div class="bar"></div>
                     <div class="bar"></div>
                     <div class="bar"></div>
                 </div>
-        
                 <nav class="navmenu">
                     <ul>
                         
@@ -336,60 +381,84 @@ footer {
                 
         </header>
 
-        <div class="container">
-            <h1>Tank Ullage Data</h1>
+<div class="container">
+<!-- templates/view_expenses.html -->
+<form method="POST" action="{{ url_for('view_expenses') }}">
+    <label>Start Date:</label>
+    <input type="date" name="start_date" required>
+    <label>End Date:</label>
+    <input type="date" name="end_date" required>
+    <button type="submit">Search</button>
+</form>
 
-    <div class="display_credit">
-        
+<h3>Expenses</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Amount(Naira)</th>
+            <th>Remarks</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for expense in expenses %}
+        <tr>
+            <td>{{ expense[0] }}</td>
+            <td>{{ expense[1] }}</td>
+            <td>{{ expense[2] }}</td>
+            <td>${{ expense[3] }}</td>
+            <td>{{ expense[4] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>Deposits</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Source</th>
+            <th>Amount(Naira)</th>
+            <th>Remarks</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for deposit in deposits %}
+        <tr>
+            <td>{{ deposit[0] }}</td>
+            <td>{{ deposit[1] }}</td>
+            <td>N{{ deposit[2] }}</td>
+            <td>{{ deposit[3] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table><br><br>
+
+<h4>Total Expenses: N{{ total_expenses }}</h4>
+<h4>Total Deposits: N{{ total_deposits }}</h4>
+
+
+
+</div>
+
+
+
+<footer>
+    <div class="copyright">
+        <p>copyright &copy;2024 <a href="#">
+
+            Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co. All Rights Reserved</a></p>
     </div>
-    
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Tank</th>
-                <th>Opening Stock</th>
-                <th>Received Stock</th>
-                <th>Closing Stock</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for row in tank_ullage_data %}
-            <tr>
-                <td>{{ row[0] }}</td>
-                <td>{{ row[1] }}</td>
-                <td>{{ row[2] }}</td>
-                <td>{{ row[3] }}</td>
-                <td>{{ row[4] }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-    
-    <div class="return_to" style="margin: 20px;">
-        <a href="{{ url_for('admin_dashboard_2') }}">Return to Dashboard</a>
+    <div class="power">
+        <p style="color: aliceblue;">Powered By PlimsolTech</p>
     </div>
+</footer>
 
 
-
-        </div>
-        
-    <footer>
-        <div class="footer-socials">
-            
-            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            
-        </div>
-        <div class="copyright">
-            <p>copyright &copy;2024 <a href="#">Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co. All Rights Reserved</a></p>
-        </div>
-        <div class="power">
-            <p style="color: aliceblue;">Powered By PlimsolTech</p>
-        </div>
-    </footer>
 </body>
+    <script src="/static/toggle.js"></script>
 </html>
+   

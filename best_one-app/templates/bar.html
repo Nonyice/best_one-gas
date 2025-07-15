@@ -1,9 +1,12 @@
+<!-- tank_haulage_form.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pump Sales</title>
+    <title>Bar Section</title>
+    <link rel="stylesheet" href="https://cdn.cloudwares.com/css/webfonts.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <style>
 
     /* static/styles.css */
@@ -33,7 +36,16 @@ html, body{
      background-color: whitesmoke;
      margin: 3px 0;
  }
+
+ .return_to a{
+    color: cadetblue;
+ }
+
+ a {
+    text-decoration: none;
+ }
  
+
 
  .navmenu {
     position: relative;
@@ -67,6 +79,7 @@ header {
     padding: 5px;
 }
 
+
 .date_time {
     padding: 2px 5px;
     color: green;
@@ -98,7 +111,7 @@ header {
 
 .navmenu li {
     display: inline;
-    margin: 5px;
+    margin: 10px;
     font-style: normal;
     font-size: 18px;
     margin-left: 2px;
@@ -133,80 +146,47 @@ header {
 
 .container {
     width: 40%;
-    margin: 80px auto;
+    margin: 35px auto;
     padding: 10px;
-    box-shadow: 0px 0.5px 0px 0.8px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    box-shadow: 0.2px 0.3px 0.8px 0.8px;
     border-radius: 5px;
     text-align: center;
 }
 
-
-
-        
-.form-group {
-    margin: inherit;
-    margin-bottom: 10px;
-}
-
-.form-group label {
-    display: flex;
-    margin-bottom: 5px;
-    text-align: justify;
-    margin-left: 25%;
-    font-family: cursive;
-    font-style: normal;
-    font-weight: 200;
-}
-
-
-
-.form-group input[type="text"],
-.form-group input[type="password"],
-.form-group input[type='date'],
-.form-group select[name='tank_name'],
-.form-group select[name='pump_id'],
-.form-group select[name='shift'],
-.form-group select[name='tank_id'],
-.form-group select[name='attendant_name'],
-.form-group input[type='number']{
-    width: 55%;
-    padding: 8px;
-    border: 0.1px solid #cebdbd;
-    border-radius: 5px;
-    margin-left: 30px;
-    text-align: justify;
-    font-size: medium;
-    font-family: serif;
-}
-
-button {
-    display: inline-block;
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-a {
-    text-decoration: none;
-    color: cadetblue;
+#revenue-item {
+    width: 50%;
     padding: 5px;
+    border-radius: 5px;
+    box-shadow: 1px 0 1px 0;
+    margin: 5px auto;
+    margin-left: 25%;
+    color: darkcyan;
 }
 
-a:hover {
-    color: rgb(245, 138, 8);
+#revenue-item a {
+    text-decoration: none;
+    color: black;
 }
+
+#revenue-item a:hover {
+    color: rgb(176, 212, 144);
+}
+
+.return_to a{
+text-decoration: none;
+}
+
+.return_to a:hover {
+color: blanchedalmond;
+}
+
 
 .power{
     background-color: black;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     position: relative;
     height: 30px;
 }
@@ -219,7 +199,6 @@ footer {
     margin-top: 80px;
     background-color: grey;
 }
-
 
 .power p {
     left: 13%;
@@ -238,24 +217,9 @@ footer {
   color: white;
 }
 
-.flash-message {
-            font-weight: bold;
-        }
-
-        .flash-success {
-            color: #155724;
-            font-weight: bold;
-        }
-
-        .flash-danger {
-            color: red;
-            font-weight: bold;
-        }
-
 
 /* Media query for mobile responsiveness */
 @media (max-width: 768px) {
-
     header {
         padding: 1px;
         padding-right: 2px;
@@ -284,7 +248,6 @@ footer {
   color: white;
   font-size: 10px;
 }
-
 
     .navmenu  {
     position:relative;
@@ -335,22 +298,27 @@ footer {
     display: block;
 }
 
-   .container {
-    width: 80%;
+    .container {
+    width: 85%;
     margin: 10px auto;
-    padding: 5px;
+    padding: 30px;
     box-shadow: 0.2px 0.3px 0.8px 0.8px;
     border-radius: 5px;
     text-align: center;
 }
-footer {
-    margin-top: 20px;
+
+#revenue-item {
+    width: 100%;
+    padding: 10px;
+    margin-left: 0;
 }
 }
    
     </style>
+    
 </head>
-<body> 
+
+<body>
     <header>   
         
         <div class="logo">Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co.</div>   
@@ -375,89 +343,45 @@ footer {
                         
                 </nav>
                 
-        </header>
-        <div class="container">
-            <h2>Pump Sales Entry</h2>
-            <p style="font-size: small; font-style: italic; color: rgb(155, 155, 10);">Carefully enter the readings from the pumps in the fields below. Note that opening readings are mirrored from the closing of the previous sales sessions. Do well to confirm values are accurate.</p><br>
-    <div class="flash">
-        <!-- Flash Messages -->
-        {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            {% for category, message in messages %}
-                <div class="flash-message flash-{{ category }}">{{ message }}</div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
-    </div>
-            
-    
-            <form action="{{ url_for('pump_sales') }}" method="POST">
-                
-                <div class="form-group">
+        </header>    
+        <div class="container"><h1>Bar Management Section</h1>
 
-                    <label for="date">Date:</label>
-                    <input type="date" id="date" name="date" required>
+            <div class="revenue">
+
+                
+
+                <div id="revenue-item">
+                    <p><a href="/add_item">Add  Bar Item</a></p>
                 </div>
-            
-                <div class="form-group">
-                    <label for="shift">Shift:</label>
-                    <select id="shift" name="shift" required>
-                    <option value="morning">Morning</option>
-                    <option value="afternoon">Afternoon</option>
-                </select>
+
+                <div id="revenue-item">
+                    <p><a href="/inventory">Bar Inventory</a></p>
+                </div>
+
+                <div id="revenue-item">
+                    <p><a href="/sell_item">Sales</a></p>
                 </div>
                 
-                <div class="form-group">
-                    <label for="pump_id">Pump:</label>
-                    <select id="pump_id" name="pump_id">
-                        {% for pump in pumps %}
-                            <option value="{{ pump[0] }}">{{ pump[1] }}</option>
-                        {% endfor %}
-                    </select>
+
+                <div id="revenue-item">
+                    <p><a href="/sales_log">Bar Sales Log</a></p>
                 </div>
-               
-            <div class="form-group">
-                <label for="closing_reading">Closing Reading:</label>
-                <input type="number" step="0.01" id="closing_reading" name="closing_reading" required><br>
-            </div>
-                
-            <div class="form-group">
-                <label for="rtt">RTT:</label>
-                <input type="number" step="0.01" id="rtt" name="rtt" required>
-            </div>
-                
-            <div class="form-group">
-                <label for="attendant_name">Attendant:</label>
-                <select id="attendant_name" name="attendant_name">
-                    {% for attendant in attendants %}
-                        <option value="{{ attendant[1] }}">{{ attendant[1] }}</option>
-                    {% endfor %}
-                </select>
-            
-            </div>
-                
-                <button type ="submit">Submit Sales</button>
-            </form>
+            </div><br>
 
-
-
-            
         </div>
-    
-    
 
-    <footer>
-        <div class="copyright">
-            <p>copyright &copy;2024 <a href="#">Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co. All Rights Reserved</a></p>
-        </div>
-        <div class="power">
-            <p style="color: aliceblue;">Powered By PlimsolTech</p>
-        </div>
-    </footer>
-
-    
-</body>
-
-<script src="/static/toggle.js"></script>
-<script src="/static/time.js"></script>
-</html>
+      
+        <footer>
+            <div class="copyright">
+                <p>copyright &copy;2024 <a href="#">
+                    Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co. All Rights Reserved</a></p>
+                </div>
+                <div class="power">
+                <p style="color: aliceblue;">Powered By PlimsolTech</p>
+                </div>
+            </footer>
+    </body>
+    <script src="/static/toggle.js"></script>
+    <script src="/static/time.js"></script>
+    </html>
+      

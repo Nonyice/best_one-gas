@@ -4,38 +4,512 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login as Admin</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="stylesheet" href="https://cdn.cloudwares.com/css/webfonts.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <script src="{{ url_for('static', filename='time.js') }}"></script>
+    <style>
+/* static/styles.css */
+
+html, body{
+	margin: 0 auto !important;
+    float: none !important;
+    padding: 0;
+    background-color: whitesmoke;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+}
+
+.menu-toggle {
+    display: none;
+     flex-direction: column;
+     cursor: pointer;
+     padding: 10px;
+ }
+
+  
+ .bar {
+     width: 25px;
+     height: 3px;
+     background-color: whitesmoke;
+     margin: 3px 0;
+ }
+
+ .navmenu {
+    position: relative;
+    flex-direction: row;
+    left: 5%;
+    font-size: 16px;
+    padding: 2px;
+    margin-top: 5px;
+    display: flex;
+    column-gap: 10px;
+    width: 55%;
+    justify-content: left;
+}
+
+.logo {
+    left: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bolder;
+    color: lime;
+    float: left;
+    margin-top: 1%;
+    width: 505px;
+    padding: 5px;
+}
+
+header {
+    background-color: rgb(12, 68, 68);
+    position: relative;
+    height: 60px;
+    padding: 5px;
+}
+
+ 
+
+
+
+a {
+    text-decoration: none;
+    color: cadetblue;
+    padding: 5px;
+}
+
+a:hover {
+    color: darkgreen;
+}
+
+
+
+.date_time {
+    padding: 2px 5px;
+    color: rgb(9, 0, 128);
+    font-family: sans-serif;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.current_time {
+    float: right;
+   
+}
+
+.return_to {
+    margin-left: 48%;
+
+}
+
+.container-al {
+    margin: 50px auto;
+    text-align: center;
+    width: 60%;
+    box-shadow: 1px 2px 2px 1px;
+    padding: 10px;
+}
+
+.container-al .form-group label {
+    margin-left: 36%;
+}
+
+
+
+.container-l .form-group label {
+    margin-left: 36%;
+}
+
+.container-ad {
+    flex-direction: row;
+    display: flex;
+    height: auto;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 2px 0;
+}
+
+.navmenu_2 {
+    position: relative;
+    flex-direction: row;
+    left: 30%;
+    padding: 2px;
+    margin-top: 2px;
+    display: block;
+    column-gap: 10px;
+    width: 80%;
+    justify-content: left;
+}
+
+.navmenu li {
+    display: inline;
+    margin: 5px;
+    font-style: normal;
+    font-size: 18px;
+    margin-left: 0px;
+}
+
+.navmenu_2 li {
+    display: inline;
+    margin: 5px;
+    font-style: normal;
+    font-size: 18px;
+    margin-left: 2px;
+}
+
+.navmenu li a {
+    text-decoration: none;
+    color: azure;
+}
+
+.navmenu_2 li a {
+    text-decoration: none;
+    color: azure;
+}
+
+.navmenu li a:hover {
+    color: bisque;
+}
+
+.navmenu_2 li a:hover {
+    color: bisque;
+}
+
+.container {
+    width: 80%;
+    margin: 40px auto;
+    padding: 10px;
+    box-shadow: 1px 2px 2px 1px;
+    border-radius: 5px;
+    text-align: center;
+    flex-direction: row;
+    display: flex;
+    height: auto;
+}
+
+.container-admin {
+    margin: 0;
+    float: left;
+}
+
+.container p {
+text-align: center;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: flex;
+    margin-bottom: 5px;
+    text-align: justify;
+    margin-left: 200px;
+}
+
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: 30%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 40px;
+    text-align: justify;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+a:hover {
+    color: rgb(245, 138, 8);
+}
+
+.power{
+    background-color: black;
+    text-align: center;
+    padding: 5px;
+    position: relative;
+}
+
+footer {
+    position: relative;
+    flex-direction: column;
+    padding-top: 2px;
+    justify-content: center;
+    margin-top: 160px;
+    background-color: grey;
+}
+
+.footer-socials {
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+.power p {
+    left: 13%;
+    margin-bottom: 25px;
+  }
+.copyright{
+    margin-top: 25px;
+    padding-bottom: 5px;
+}
+.copyright p{
+   margin-left: 15px;
+   color: black;
+}
+
+.copyright a{
+  color: white;
+  font-size: 14px;
+}
+
+
+/* Media query for mobile responsiveness */
+@media (max-width: 768px) {
+
+    header {
+        padding: 1px;
+        padding-right: 2px;
+    }
+
+    .logo {
+        font-size: 14px;
+        margin-top: 20px;
+    }
+    
+    
+    .menu-toggle {
+            display: block;
+            margin-top: 12px;
+            margin-left: 92%;
+            position: relative;
+            width: 1%;
+        }
+.copyright p{
+   margin-left: 15px;
+   color: black;
+   font-size: 12px;
+}
+
+.copyright a{
+  color: white;
+  font-size: 10px;
+}
+
+    
+    .menu-toggle {
+            display: block;
+            margin-top: 12px;
+            margin-left: 92%;
+            position: relative;
+            width: 1%;
+        }
+    
+    
+        .navmenu  {
+        position:relative;
+        top: 5px;
+        left: 62%;
+        column-gap: 5px;
+        display: none; 
+        flex-direction: column;
+        background-color: #333;
+        color: #fff; 
+        width: 30%;
+        text-align: center;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        padding-right: 30px;
+        contain: content;
+        height: auto;
+        z-index: 10;
+    }
+
+    .navmenu_2 {
+        position:relative;
+        top: 5px;
+        left: 62%;
+        column-gap: 5px;
+        display: none; 
+        flex-direction: column;
+        background-color: #333;
+        color: #fff; 
+        width: 30%;
+        text-align: center;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        padding-right: 30px;
+        contain: content;
+        height: auto;
+    }
+    .container-ad {
+        flex-direction: column;
+        display: block;
+    }
+
+    .container-al {
+        width: 90%;
+    }
+    
+    .container-l {
+        width: 90%;
+    }
+    
+    .container-al .form-group label {
+        margin-left: 20%;
+        
+    }
+    .container-l .form-group label {
+        margin-left: 20%;
+        
+    }
+    .container-al .form-group input {
+        margin-left: 0%;
+        width: 60%;
+    }
+    .container-l .form-group input {
+        margin-left: 0%;
+        width: 60%;
+    }
+
+    
+    .navmenu ul {
+        margin-top: -10px;
+        flex-direction: column;
+        display: flex;
+        width: 100%;
+        margin: 0px;
+    }
+
+    .navmenu_2 ul {
+        margin-top: -10px;
+        flex-direction: column;
+        display: flex;
+        width: 100%;
+        margin: 0px;
+    }
+    
+    
+    .navmenu li {
+        text-align: center;
+        margin-left: -32px;
+        padding-left: 12px;
+        font-size: 14px;
+    }
+    
+    .navmenu_2 li {
+        text-align: center;
+        margin-left: -32px;
+        padding-left: 12px;
+        font-size: 14px;
+    }
+    .navmenu  li a {
+        display: flex;
+    
+    }
+
+    .navmenu_2  li a {
+        display: flex;
+    
+    }
+    
+    .navmenu li a:hover {
+        color: rgb(104, 219, 93);
+    }
+
+
+    .navmenu_2 li a:hover {
+        color: rgb(104, 219, 93);
+    }
+    
+    
+    
+    .navmenu.active {
+        display: block;
+    }
+
+    .navmenu_2.active {
+        display: block;
+    }
+
+
+.form-group label {
+    margin-left: 28%;
+    text-align: justify;
+}
+footer {
+    margin-top: 60px;
+}
+
+.copyright p{
+    margin-left: 15px;
+    color: black;
+    font-size: 12px;
+ }
+ 
+ .copyright a{
+   color: white;
+   font-size: 10px;
+ }
+ 
+ 
+
+
+}
+
+
+       
+
+
+    </style>
 </head>
 <body>
     <header>   
-        
-        <div class="logo">BEST 0NE GAS & PET CO </div>   
-        <!-- Navigation menu-->
-{% if 'username' in session %}
-<nav class="navmenu">
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/tanks">Tanks</a></li>
-        <li><a href="metre.html">Sales</a></li>
-        <li><a href="revenue.html">Revenue</a></li>
-        <li><a href="bar.html">Bar</a></li>
-    </ul>
-</nav>
-{% else %}
-<nav class="navmenu_2">
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/admin_login">Admin</a></li>
-    </ul>
-</nav>
-{% endif %}
-                
-        </header>
-    <div class="container">
+        <div class="logo">Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co.</div>   
+        <!-- Navigation menu toggle -->
+        <div class="menu-toggle">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+
+        {% if 'username' in session %}
+            <nav class="navmenu">
+                <ul>
+                   <li><a href="/">Home</a></li> 
+                   <li><a href="/underground_tanks">Tank Dipping</a></li>
+                   <li><a href="/pump_sales">Pump Sales</a></li>
+                   <li><a href="/revenue">Revenue Management</a></li>
+                   <li><a href="/bar">Bar/Restaurant</a></li>
+                   <li><a href="/reports">Reports</a></li>
+                </ul>
+            </nav>
+        {% else %}
+            <nav class="navmenu_2">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/admin_login">Admin</a></li>
+                </ul>
+            </nav>
+        {% endif %}
+    </header>
+
+    <div class="container-al">
         <h1>Admin Login</h1>
         {% if message %}
             <p>{{ message }}</p>
@@ -52,15 +526,33 @@
             <button type="submit" class="btn">Login as Admin</button>
         </form>
     </div>
+
     <footer>
+        <div class="footer-socials">
+            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
         <div class="copyright">
-            <p>copyright &copy;2024 <a href="#">BEST ONE GAS: All Rights Reserved</a></p>
+            <p>Copyright &copy;2024 <a href="#">Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co.</a></p>
         </div>
         <div class="power">
-            <p style="color: aliceblue;">Powered By PlimsolTech</p>
+            <p>Powered By PlimsolTech</p>
         </div>
     </footer>
+
+    <script>
+        // Toggle Menu
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.navmenu');
+        const navMenu2 = document.querySelector('.navmenu_2');
+
+        menuToggle.addEventListener('click', () => {
+            if (navMenu) navMenu.classList.toggle('active');
+            if (navMenu2) navMenu2.classList.toggle('active');
+        });
+    </script>
 </body>
-<script src="/static/toggle.js"></script>
     <script src="/static/time.js"></script>
 </html>

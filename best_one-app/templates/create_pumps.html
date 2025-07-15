@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pump Sales</title>
+    <title>Create a new pump</title>
+    <link rel="stylesheet" href="https://cdn.cloudwares.com/css/webfonts.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
     <style>
-
-    /* static/styles.css */
-
+               
 html, body{
 	margin: 0 auto !important;
     float: none !important;
@@ -34,6 +35,7 @@ html, body{
      margin: 3px 0;
  }
  
+
 
  .navmenu {
     position: relative;
@@ -83,6 +85,13 @@ header {
     margin-top: -45px;
 }
 
+a {
+    text-decoration: none;
+    color: cadetblue;
+}
+
+
+
 .navmenu_2 {
     left: 80%;
     position: relative;
@@ -131,22 +140,35 @@ header {
     color: bisque;
 }
 
-.container {
-    width: 40%;
-    margin: 80px auto;
-    padding: 10px;
-    box-shadow: 0px 0.5px 0px 0.8px;
-    border-radius: 5px;
-    text-align: center;
-}
-
-
-
         
-.form-group {
-    margin: inherit;
-    margin-bottom: 10px;
+.container {
+    width: 50%;
+    box-shadow: 0.6px 0.6px 0.7px 1.1px;
+    text-align: center;
+    margin-left:  25%;
+    margin: 80px auto;
+    padding-bottom: 20px;
+    padding: 20px;
+    flex-direction: column;
+    display: flex;
+    border-radius: 5px;
 }
+
+
+
+.form-group {
+    margin-left: 5%;
+    padding-bottom: 10px;
+}
+
+.form-group input[type="text"] ,
+.form-group select[name='product_type']{
+    border-radius: 5px;
+    padding: 5px;
+    width: 50%;
+    padding-bottom: 10px;
+}
+
 
 .form-group label {
     display: flex;
@@ -155,60 +177,31 @@ header {
     margin-left: 25%;
     font-family: cursive;
     font-style: normal;
-    font-weight: 200;
 }
 
-
-
-.form-group input[type="text"],
-.form-group input[type="password"],
-.form-group input[type='date'],
-.form-group select[name='tank_name'],
-.form-group select[name='pump_id'],
-.form-group select[name='shift'],
-.form-group select[name='tank_id'],
-.form-group select[name='attendant_name'],
-.form-group input[type='number']{
-    width: 55%;
-    padding: 8px;
-    border: 0.1px solid #cebdbd;
-    border-radius: 5px;
-    margin-left: 30px;
-    text-align: justify;
-    font-size: medium;
-    font-family: serif;
+#pump-form {
+    margin-left: 0%;
+    padding: 10px;
 }
+
 
 button {
-    display: inline-block;
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
     border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-a {
-    text-decoration: none;
-    color: cadetblue;
+    margin-left: 40%;
     padding: 5px;
 }
 
-a:hover {
-    color: rgb(245, 138, 8);
+button:hover {
+    background-color: #aabdd1;
 }
 
+
+        
 .power{
     background-color: black;
     text-align: center;
     padding: 20px;
     position: relative;
-    height: 30px;
 }
 
 footer {
@@ -220,7 +213,10 @@ footer {
     background-color: grey;
 }
 
-
+.power {
+    height: 30px;
+    padding-top: 5px;
+}
 .power p {
     left: 13%;
     margin-bottom: 25px;
@@ -237,25 +233,16 @@ footer {
 .copyright a{
   color: white;
 }
+.footer-socials {
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+}
 
-.flash-message {
-            font-weight: bold;
-        }
-
-        .flash-success {
-            color: #155724;
-            font-weight: bold;
-        }
-
-        .flash-danger {
-            color: red;
-            font-weight: bold;
-        }
 
 
 /* Media query for mobile responsiveness */
 @media (max-width: 768px) {
-
     header {
         padding: 1px;
         padding-right: 2px;
@@ -286,9 +273,10 @@ footer {
 }
 
 
+
     .navmenu  {
     position:relative;
-    top: 8px;
+    top: 5px;
     left: 62%;
     column-gap: 5px;
     display: none; 
@@ -334,23 +322,52 @@ footer {
 .navmenu.active {
     display: block;
 }
-
-   .container {
+    .container {
     width: 80%;
-    margin: 10px auto;
+    margin: 40px auto;
     padding: 5px;
     box-shadow: 0.2px 0.3px 0.8px 0.8px;
     border-radius: 5px;
     text-align: center;
 }
+
+
+.form-group input[type="text"] ,
+.form-group select[name='product_type']{
+    border-radius: 5px;
+    padding: 5px;
+    width: 60%;
+    margin-left: -10%;
+}
+
+
+
+.form-group label {
+    display: flex;
+    margin-bottom: 5px;
+    text-align: justify;
+    margin-left: 12%;
+    font-family: cursive;
+    font-style: normal;
+}
+
+#pump-form {
+    margin-left: 0%;
+    padding: 10px;
+}
+button {
+    margin-left: 32%;
+}
+
 footer {
     margin-top: 20px;
 }
 }
-   
+
     </style>
 </head>
-<body> 
+<body>
+    
     <header>   
         
         <div class="logo">Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co.</div>   
@@ -376,88 +393,59 @@ footer {
                 </nav>
                 
         </header>
-        <div class="container">
-            <h2>Pump Sales Entry</h2>
-            <p style="font-size: small; font-style: italic; color: rgb(155, 155, 10);">Carefully enter the readings from the pumps in the fields below. Note that opening readings are mirrored from the closing of the previous sales sessions. Do well to confirm values are accurate.</p><br>
-    <div class="flash">
-        <!-- Flash Messages -->
-        {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            {% for category, message in messages %}
-                <div class="flash-message flash-{{ category }}">{{ message }}</div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
-    </div>
-            
-    
-            <form action="{{ url_for('pump_sales') }}" method="POST">
-                
-                <div class="form-group">
+    <div class="container">
+        <h2>Create A New Pump</h2>
 
-                    <label for="date">Date:</label>
-                    <input type="date" id="date" name="date" required>
-                </div>
+        <form id="pump-form" method="post" action="/create_pumps">
+            <div class="form-group">
+            <Label for="pump_name">Pumps</Label>
+            <input type="text" id="pump_name" name="pump_name" pattern="^[A-Z]{2, 3} [0-9]+$" title="Format 'PMS 1" required>
+
             
-                <div class="form-group">
-                    <label for="shift">Shift:</label>
-                    <select id="shift" name="shift" required>
-                    <option value="morning">Morning</option>
-                    <option value="afternoon">Afternoon</option>
+                <label for="product_type">Product:</label>
+                <select id="product_type" name="product_type" required>
+                    <option value="PMS">PMS</option>
+                    <option value="AGO_P">AGO-P</option>
+                    <option value="AGO_B">AGO-B</option>
+                    <option value="AGO">DPK</option>
                 </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="pump_id">Pump:</label>
-                    <select id="pump_id" name="pump_id">
-                        {% for pump in pumps %}
-                            <option value="{{ pump[0] }}">{{ pump[1] }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-               
-            <div class="form-group">
-                <label for="closing_reading">Closing Reading:</label>
-                <input type="number" step="0.01" id="closing_reading" name="closing_reading" required><br>
+            </div><br>
+           
+            <button type="subnit">Save pump</button>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            <div class="flash">
+                {% for category, message in messages %}
+            <div class="alert alert-{{ category }}" role="alert">
+                    {{ message }}
             </div>
-                
-            <div class="form-group">
-                <label for="rtt">RTT:</label>
-                <input type="number" step="0.01" id="rtt" name="rtt" required>
+                     {% endfor %}
             </div>
-                
-            <div class="form-group">
-                <label for="attendant_name">Attendant:</label>
-                <select id="attendant_name" name="attendant_name">
-                    {% for attendant in attendants %}
-                        <option value="{{ attendant[1] }}">{{ attendant[1] }}</option>
-                    {% endfor %}
-                </select>
+                     {% endif %}
+
+           {% endwith %}
+        </form>
+        <div class="return_to" style="margin: 20px;">
+            <a href="{{ url_for('admin_dashboard_2') }}">Return to Dashboard</a>
+        </div>
+        </div>
+        <footer>
+            <div class="footer-socials">
             
-            </div>
+                <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
                 
-                <button type ="submit">Submit Sales</button>
-            </form>
-
-
-
-            
-        </div>
-    
-    
-
-    <footer>
-        <div class="copyright">
-            <p>copyright &copy;2024 <a href="#">Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co. All Rights Reserved</a></p>
-        </div>
-        <div class="power">
-            <p style="color: aliceblue;">Powered By PlimsolTech</p>
-        </div>
-    </footer>
-
-    
+            </div>
+            <div class="copyright">
+                <p>copyright &copy;2024 <a href="#">Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co. All Rights Reserved</a></p>
+            </div>
+            <div class="power">
+                <p style="color: aliceblue;">Powered By PlimsolTech</p>
+            </div>
+        </footer>
 </body>
-
 <script src="/static/toggle.js"></script>
-<script src="/static/time.js"></script>
 </html>

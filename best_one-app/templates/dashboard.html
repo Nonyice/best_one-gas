@@ -5,11 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    
+
+
+<link rel="stylesheet" href="https://cdn.cloudwares.com/css/webfonts.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 <body>
-    <header>   
+    <header> 
+          
         
-        <div class="logo">BEST 0NE GAS & PET CO </div>   
+        <div class="logo">Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co.</div>   
         <!-- Navigation menu-->
                 <div class="menu-toggle">
                     <div class="bar"></div>
@@ -21,47 +27,84 @@
                     <ul>
                         
                        <li><a href="/">Home</a></li> 
-                       <li><a href="/tanks">Tanks</a></li>
-                        <li><a href="/pump_sales">Sales</a></li>
-                        <li><a href="revenue.html">Revenue</a></li>
-                        <li><a href="bar.html">Bar</a></li>
+                       <li><a href="/underground_tanks">Tank Dipping</a></li>
+                        <li><a href="/pump_sales">Pump Sales</a></li>
+                        <li><a href="/revenue">Revenue Management</a></li>
+                        <li><a href="/bar">Bar/Restaurant</a></li>
+                        <li><a href="/reports">Reports</a></li>
                     
                     </ul>
                         
                 </nav>
                 
         </header>
-    <div class="container">
-        <h3>Welcome, {{ session['username'] }}!</h3>
-        <p style="text-align: justify;">Please  {{ session['username'] }}, this is a sensored zone, Changes you make through this dashboard can always be traced to you, kindly ensure all enteries are correct</p>
-        
-        <h4>Dashboard<h4>
+        <h3 style="text-align: center;">Welcome, {{ session['username'] }}!</h3>
+        <p style="text-align: center;">Please  {{ session['username'] }}, this is a sensored zone, Changes you make through this dashboard can always be traced to you, kindly ensure all enteries are correct</p><br>
+        <h4 style="text-align: center;">User Dashboard</h4>
+    
 
         <div class="dashboard">
-            <div class="dashboard_item">
-                <p>Pump Sales</p>
-            </div>
+            <div class="container-user">
+            <div class="user">
+                <div class="dashboard_item">
+                    <p><a href="/pump_sales">Pump Sales</a></p>
+                </div>
 
             <div class="dashboard_item">
-                <p>Underground Tanks</p>
+                <p><a href="/underground_tanks">Stock Update</a></p>
             </div>
-
+            
             <div class="dashboard_item">
-                <p>Revenue</p>
+                <p><a href="/expenses"> Office Routine Expenses</a></p>
+    
             </div>
-
+    
             <div class="dashboard_item">
-                <p>Restaurant & Bar</p>
+                <p><a href="/add_deposit">Add Deposits</a></p>
+    
+            </div>
+                
             </div>
 
-        </div>
-        <div>
-                    <a href="{{ url_for('logout') }}">Logout</a>
-    </div>
+            <div class="user">
+                <div class="dashboard_item">
+                    <p><a href="/add_md_transaction">Manage MD's Transactions</a></p>
+                </div>
+    
+                <div class="dashboard_item">
+                    <p><a href="/customer_credit">Manage Customer Credit</a></p>
+                </div>
+    
+    
+                <div class="dashboard_item">
+                    <p><a href="/submit_money">Money Submission</a></p>
+                </div>
+    
+                <div class="dashboard_item">
+                    <p><a href="/bar">Bar & Restaurant </a></p>
+    
+                </div>
+    
+    
+            </div>
+
+                    </div>
+        
+</div>
+<div>
+    <a href="{{ url_for('logout') }}" style="text-align: center; margin-left: 46%;">Logout</a>
 </div>
 <footer>
+    <div class="footer-socials">
+            
+        <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        
+    </div>
     <div class="copyright">
-        <p>copyright &copy;2024 <a href="#">BEST ONE GAS: All Rights Reserved</a></p>
+        <p>copyright &copy;2024 <a href="#">Gozzylinkx Energy Resources - BestOneGas Petroleum & Dist Co. All Rights Reserved</a></p>
     </div>
     <div class="power">
         <p style="color: aliceblue;">Powered By PlimsolTech</p>

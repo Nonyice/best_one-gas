@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay Outstanding Debts</title>
+    <style>
+        body, html {
+            margin: 0 auto !important;
+    float: none !important;
+    padding: 0;
+    background-color: rgb(224, 188, 121);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+}
+
+.container {
+    width: 40%;
+    margin-left: 30%;
+    box-shadow: 0 2px 2px 0;
+    flex-direction: column;
+    display: flex;
+    height: auto;
+    padding: 10px;
+    margin-top: 50px;
+}
+
+
+form {
+    width: 50%;
+    margin-left: 0%;
+    margin: 10px auto;
+    padding: 20px;
+    padding-right: 30px;
+    border: 1px solid black;
+}
+
+
+form select[id='vendor'],
+form select[id='product_type'],
+form input[type='number'],
+form input[type='text'] {
+    width: 100%;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 8px;
+    margin-left: 0%;
+}
+
+.return_to {
+    margin-left: 38%;
+}
+
+.return_to a {
+    text-decoration: none;
+    color: cadetblue;
+}
+
+form label {
+    margin-left: 0%;
+    font-family: sans-serif;
+    font-size: larger;
+    
+}
+
+.return_to a:hover {
+    color: rgb(118, 124, 124);
+}
+
+button {
+    margin-left: 32%;
+    margin-top: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+
+}
+
+button:hover {
+    background-color: cadetblue;
+    cursor: pointer;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+@media (max-width: 768px) {
+    .container{
+    width: 92%;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+form {
+    width: 80%;
+}
+
+button {
+    margin-left: 38%
+}
+}
+
+
+
+        
+    </style>
+
+    <script>
+        let stockData = [];  // Store the stock data to use for dynamic selections
+
+        async function loadStockData() {
+            try {
+                const response = await fetch('/get_received_stock');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch stock data');
+                }
+                stockData = await response.json();
+                populateProductTypesAndVendors();
+            } catch (error) {
+                console.error('Error loading stock data:', error);
+                alert('Error loading stock data. Please try again later.');
+            }
+        }
+
+        function populateProductTypesAndVendors() {
+            const productSelect = document.getElementById('product_type');
+            const vendorSelect = document.getElementById('vendor');
+            
+            // Reset dropdowns
+            productSelect.innerHTML = '<option value="" disabled selected>Select a product</option>';
+            vendorSelect.innerHTML = '<option value="" disabled selected>Select a vendor</option>';
+            
+            // Populate product types dynamically
+            const productTypes = [...new Set(stockData.map(item => item.product_type))];
+            productTypes.forEach(productType => {
+                const option = document.createElement('option');
+                option.value = productType;
+                option.textContent = productType;
+                productSelect.appendChild(option);
+            });
+
+            // Populate vendors dynamically based on the selected product type
+            productSelect.onchange = () => {
+                const selectedProduct = productSelect.value;
+                const vendors = [...new Set(stockData.filter(item => item.product_type === selectedProduct).map(item => item.vendor))];
+                vendorSelect.innerHTML = '<option value="" disabled selected>Select a vendor</option>';
+                vendors.forEach(vendor => {
+                    const option = document.createElement('option');
+                    option.value = vendor;
+                    option.textContent = vendor;
+                    vendorSelect.appendChild(option);
+                });
+                vendorSelect.disabled = false;  // Enable vendor dropdown
+            };
+
+            vendorSelect.disabled = true;  // Disable vendor dropdown initially
+        }
+
+        function populateDetails() {
+            const productType = document.getElementById('product_type').value;
+            const vendor = document.getElementById('vendor').value;
+
+            const selectedItem = stockData.find(item => item.product_type === productType && item.vendor === vendor);
+            if (selectedItem) {
+                document.getElementById('outstanding_debts').value = selectedItem.outstanding_debts;
+                document.getElementById('date').value = selectedItem.date;
+            }
+        }
+
+        async function updatePayment() {
+            const payment = parseFloat(document.getElementById('payment').value);
+            const productType = document.getElementById('product_type').value;
+            const vendor = document.getElementById('vendor').value;
+            
+            const selectedItem = stockData.find(item => item.product_type === productType && item.vendor === vendor);
+            
+            if (!selectedItem) {
+                alert('Selected product or vendor is invalid.');
+                return;
+            }
+
+            const newOutstanding = selectedItem.outstanding_debts - payment;
+
+            if (payment > selectedItem.outstanding_debts) {
+                alert('Payment exceeds outstanding debt!');
+                return;
+            }
+
+            try {
+                const response = await fetch('/update_payment', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        vendor: vendor,
+                        product_type: productType,
+                        payment: payment,
+                        new_outstanding: newOutstanding
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to update payment');
+                }
+
+                const result = await response.json();
+                alert(result.message);
+                location.reload();  // Reload to reflect changes
+            } catch (error) {
+                console.error('Error updating payment:', error);
+                alert('Error updating payment. Please try again later.');
+            }
+        }
+
+        window.onload = loadStockData;  // Load stock data on page load
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Pay Outstanding Debts</h1>
+    <form onsubmit="event.preventDefault(); updatePayment();">
+        <label for="product_type">Select Product:</label><br>
+        <select id="product_type" onchange="populateDetails()" required>
+            <option value="" disabled selected>Select a product</option>
+        </select><br>
+
+        <label for="vendor">Select Vendor:</label><br>
+        <select id="vendor" onchange="populateDetails()" required disabled>
+            <option value="" disabled selected>Select a vendor</option>
+        </select><br>
+
+        <label for="outstanding_debts">Outstanding Debts:</label><br>
+        <input type="number" id="outstanding_debts" readonly><br>
+
+        <label for="date">Date:</label><br>
+        <input type="text" id="date" readonly><br>
+
+        <label for="payment">Payment Amount:</label><br>
+        <input type="number" id="payment" required><br>
+
+        <button type="submit">Update Payment</button><br>
+    </form><br><br>
+
+
+
+    <div class="return_to">
+        <a href="{{ url_for('admin_dashboard_2') }}">Return to Dashboard</a>
+    </div>
+
+    </div>
+
+    </body>
+</html>
